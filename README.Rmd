@@ -56,10 +56,10 @@ The raw rspectra are stored in a table called, output. The normalized values are
 Parameter     | Description                      
 ------------- | ------------------------------ 	
 x	      | a raster layer (stack or brick)
-window_size	      | a MODIS product band (if NULL all bands are downloaded)
-plot           | plot output
-normalize           | normalize the radial spectrum
-method | zones or mw (moving window)
+window_size	      | a window size in pixels
+plot           | plot output (TRUE / FALSE)
+normalize           | normalize the radial spectrum (TRUE / FALSE)
+method | "zones" or "mw" (i.e. moving window)
 </p>
 </details>
 

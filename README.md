@@ -25,12 +25,7 @@ canopy level, the principle works on images of all types.
 
 ### stable release
 
-To install the current stable release use a CRAN repository:
-
-``` r
-install.packages("foto")
-library("foto")
-```
+No stable release on CRAN, working on it.
 
 ### development release
 
@@ -64,18 +59,17 @@ is stored in a rasterBrick called RGB.
 
 <details>
 
-<summary>detailed parameter description (click to
-expand)</summary>
+<summary>detailed parameter description (click to expand)</summary>
 
 <p>
 
-| Parameter    | Description                                             |
-| ------------ | ------------------------------------------------------- |
-| x            | a raster layer (stack or brick)                         |
-| window\_size | a MODIS product band (if NULL all bands are downloaded) |
-| plot         | plot output                                             |
-| normalize    | normalize the radial spectrum                           |
-| method       | zones or mw (moving window)                             |
+| Parameter    | Description                                  |
+| ------------ | -------------------------------------------- |
+| x            | a raster layer (stack or brick)              |
+| window\_size | a window size in pixels                      |
+| plot         | plot output (TRUE / FALSE)                   |
+| normalize    | normalize the radial spectrum (TRUE / FALSE) |
+| method       | “zones” or “mw” (i.e. moving window)         |
 
 </p>
 
@@ -113,7 +107,7 @@ output <- foto(r,
      method = "zones")
 ```
 
-![](README-unnamed-chunk-5-1.png)<!-- -->
+![](README-unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
 
@@ -146,7 +140,7 @@ output <- foto(r,
 #> This might take a while.
 ```
 
-![](README-unnamed-chunk-6-1.png)<!-- -->
+![](README-unnamed-chunk-5-1.png)<!-- -->
 
 ## Partitioned normalization
 
