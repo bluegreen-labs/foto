@@ -87,10 +87,10 @@ as it effectively reduces to resolution of the orignal data. In short,
 data is aggregated at the size of the specified window.
 
 An example analysis is run below. In the resulting image pixels with a
-similar colour have a similar texture. The analysis is run a historical
-image of plantations near Yangambi, DR Congo, as recovered in the
-[COBECORE project](http://cobecore.org/). The regular pattern of planted
-trees is picked up readily by the algorithm.
+similar colour have a similar texture. The analysis is run on a
+historical image of plantations near Yangambi, DR Congo, as recovered in
+the [COBECORE project](http://cobecore.org/). The regular pattern of
+planted trees is picked up readily by the algorithm.
 
 ``` r
 # load the library

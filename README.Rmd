@@ -68,7 +68,7 @@ method | "zones" or "mw" (i.e. moving window)
 
 The original implementation used discrete zones (blocks of x pixels wide, window_size parameter) to classify an image. This original implementation is the default, and the least computationally intensive, as it effectively reduces to resolution of the orignal data. In short, data is aggregated at the size of the specified window. 
 
-An example analysis is run below. In the resulting image pixels with a similar colour have a similar texture. The analysis is run a historical image of plantations near Yangambi, DR Congo, as recovered in the [COBECORE project](http://cobecore.org/). The regular pattern of planted trees is picked up readily by the algorithm.
+An example analysis is run below. In the resulting image pixels with a similar colour have a similar texture. The analysis is run on a historical image of plantations near Yangambi, DR Congo, as recovered in the [COBECORE project](http://cobecore.org/). The regular pattern of planted trees is picked up readily by the algorithm.
 
 ```{r figure_1, fig.width=7, fig.height=7, message = FALSE, warning = FALSE, fig.path = "docs/"}
 # load the library
