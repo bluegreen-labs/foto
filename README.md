@@ -107,7 +107,7 @@ output <- foto(r,
      method = "zones")
 ```
 
-![](README-unnamed-chunk-4-1.png)<!-- -->
+![](docs/figure_1-1.png)<!-- -->
 
 ``` r
 
@@ -140,7 +140,7 @@ output <- foto(r,
 #> This might take a while.
 ```
 
-![](README-unnamed-chunk-5-1.png)<!-- -->
+![](docs/figure_2-1.png)<!-- -->
 
 ## Partitioned normalization
 
