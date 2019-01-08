@@ -4,8 +4,9 @@
 #  the output is an increment to i (global) and data that is
 #  written matrix 'output' (global) to be defined up front. 
 #'
-#' @param x a raster layer / brick or stack, multilayered images (RGB or
-#' otherwise) are averaged to a single layer raster
+#' @param x an image file, raster layer, stack or brick 
+#' for multilayered images (RGB or otherwise) data are averaged to 
+#' a single layer raster
 #' @param window_size a moving window size in pixels (default = 61 pixels)
 #' @param plot plot output, bolean \code{TRUE} or \code{FALSE}
 #' @param method zones (for discrete zones) or mw for a moving window
@@ -16,6 +17,7 @@
 #' raster layer
 #' @keywords foto, radial spectrum
 #' @seealso \code{\link[foto]{rspectrum}}
+#' @importFrom raster brick
 #' @export
 #' @examples
 #'
@@ -37,6 +39,11 @@ foto <- function(
   
   # get the current enviroment
   env <- environment()
+  
+  # check for image
+  if(missing(x)){
+    stop("No image or RasterLayer / Stack or Brick provided.")
+  }
   
   # 2. read the image / matrix file and apply extract the r-spectra
   if (class(x)[1]!="RasterLayer" || class(x)[1]!="RasterBrick" ){  
@@ -138,16 +145,7 @@ foto <- function(
   # set all infinite values to NA
   output[is.infinite(output)] <- NA
   
-  # normalize matrix column wise (ignoring NA values)
-  # (this routine doesn't increase the accuracy of the
-  # resulting map, if not it produces worse output. 
-  # uncomment the code if wanted)
-  
-  # normalize column wise by substracting the mean
-  # and dividing with the standard deviation
-  # keep original input file for reference
-  # look up reference!
-  # NOTE: use base::scale???
+  # Normalize matrix column wise (ignoring NA values)
   noutput <- base::scale(output)
   
   # set NA/Inf values to 0 as the pca analys doesn't take NA values
@@ -160,14 +158,13 @@ foto <- function(
   # only the first 3 PC will be considered
   for (i in 1:3){
     assign(paste('rcl.',i,sep=''),
-           cbind(1:length(pcfit$scores[,i]),
+           cbind(seq(1, length(pcfit$scores[,i]), 1),
                  normalize(pcfit$scores[,i])),
            envir = env)
   }  
   
   # reclassify using the above reclass files
   PC <- lapply(1:3, function(i){
-    # get() reclass matrix and reclassify the zones file
     return(raster::reclassify(zones, get(paste('rcl.',i,sep=''))))
   })
   

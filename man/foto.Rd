@@ -8,8 +8,9 @@ foto(x, window_size = 61, method = "zones", plot = FALSE,
   norm_spec = TRUE)
 }
 \arguments{
-\item{x}{a raster layer / brick or stack, multilayered images (RGB or
-otherwise) are averaged to a single layer raster}
+\item{x}{an image file, raster layer, stack or brick 
+for multilayered images (RGB or otherwise) data are averaged to 
+a single layer raster}
 
 \item{window_size}{a moving window size in pixels (default = 61 pixels)}
 

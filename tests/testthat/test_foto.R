@@ -1,11 +1,39 @@
 context("Test main functions")
+library(foto)
 
-# read in data
-r <- raster("inst/extdata/field_plots.png")
+# load demo data
+file <- sprintf("%s/extdata/yangambi.png", path.package("foto"))
+print(file)
+r <- raster::raster(file)
 
-# test zones
-foto(r, windowsize = 25, method = "zones")
+test_that("test zones",{
 
-# test moving window
-r <- crop(r, extent(1,100,1,100))
-foto(r, plot = TRUE, windowsize = 25, method = "mw")
+  # classify pixels using zones
+  expect_output(str(foto(r,
+                 plot = FALSE,
+                 window_size = 25,
+                 method = "zones")))
+  
+  # plot data
+  expect_output(str(foto(r,
+                         plot = TRUE,
+                         window_size = 25,
+                         method = "zones")))
+  
+  # no image
+  expect_error(foto(window_size = 25, method = "zones"))
+  
+})
+
+test_that("test mw",{
+  
+  # test moving window
+  r <- raster::crop(r, raster::extent(1,30,1,30))
+  
+  # test moving window
+  expect_output(str(foto(r,
+                         plot = FALSE,
+                         window_size = 25,
+                         method = "mw")))
+})
+
