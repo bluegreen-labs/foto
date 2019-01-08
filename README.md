@@ -11,8 +11,8 @@ Status](https://travis-ci.org/khufkens/foto.svg)](https://travis-ci.org/khufkens
 # FOTO
 
 The FOTO (Fourier Transform Textural Ordination) method uses a principal
-component analysis (PCA) on radially averaged 2D fourier spectra to
-characterize (greyscale) image texture. The FOTO method was used in
+component analysis (PCA) on radially averaged 2D Fourier spectra to
+characterize (grayscale) image texture. The FOTO method was used in
 [Couteron et
 al. 2005](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2664.2005.01097.x/abstract;jsessionid=359DD0662C272A59AF94FAEF3F213156.f02t04),
 [Proisy et
