@@ -158,9 +158,9 @@
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co"># classify pixels using zones (discrete steps)</span></a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">output &lt;-<span class="st"> </span><span class="kw"><a href="reference/foto.html">foto</a></span>(r,</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">     <span class="dt">windowsize =</span> <span class="dv">25</span>,</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">     <span class="dt">window_size =</span> <span class="dv">25</span>,</a>
 <a class="sourceLine" id="cb3-11" data-line-number="11">     <span class="dt">method =</span> <span class="st">"zones"</span>)</a></code></pre></div>
-<p><img src="README-unnamed-chunk-4-1.png" width="700"></p>
+<p><img src="figure_1-1.png" width="672"></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># print data structure</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(output))</a>
@@ -176,11 +176,11 @@
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># crop the image</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5">output &lt;-<span class="st"> </span><span class="kw"><a href="reference/foto.html">foto</a></span>(r,</a>
 <a class="sourceLine" id="cb5-6" data-line-number="6">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">     <span class="dt">windowsize =</span> <span class="dv">25</span>,</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">     <span class="dt">window_size =</span> <span class="dv">25</span>,</a>
 <a class="sourceLine" id="cb5-8" data-line-number="8">     <span class="dt">method =</span> <span class="st">"mw"</span>)</a>
 <a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; A moving window approach is computationally intensive.</span></a>
 <a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; This might take a while.</span></a></code></pre></div>
-<p><img src="README-unnamed-chunk-5-1.png" width="700"></p>
+<p><img src="figure_2-1.png" width="672"></p>
 </div>
 </div>
 <div id="partitioned-normalization" class="section level2">

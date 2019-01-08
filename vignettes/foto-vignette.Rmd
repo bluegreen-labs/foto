@@ -35,7 +35,7 @@ An additional, moving window, approach is provided which returns an object of th
 
 The zoned approach on the `foto()` routine returns a nested list with the source data (aggregated zones, fourier components) and a final colour image consisting of the three major principal components for every pixel. An example analysis is run below.
 
-```{r eval = TRUE, message = FALSE, warning = FALSE}
+```{r figure_1, message = FALSE, warning = FALSE, fig.width=7, fig.height=7}
 # load the library
 library(foto)
 
@@ -58,7 +58,7 @@ In the resulting image pixels with a similar colour have a similar texture. The 
 
 Below you find an example analyis for a subsection of the processed image above. The output format of the moving window analysis is consistent with that of the zoned approach.
 
-```{r eval = TRUE}
+```{r figure_2, fig.width=7, fig.height=7}
 # crop the image for speed
 r <- crop(r, extent(1,100,1,100))
 

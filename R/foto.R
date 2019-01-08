@@ -22,10 +22,18 @@
 #' @examples
 #'
 #' \donttest{
-#' # read in raster
+#' load demo data
+#' r <- raster::raster(sprintf("%s/extdata/yangambi.png",
+#'  path.package("foto")))
 #' 
-#' # calculate spectrum
+#' # classify pixels using zones (discrete steps)
+#' output <- foto(r,
+#'                plot = TRUE,
+#'                window_size = 25,
+#'                method = "zones")
 #' 
+#' # print data structure
+#' print(names(output))
 #'}
 
 
