@@ -4,6 +4,9 @@
 [![Build
 Status](https://travis-ci.org/khufkens/foto.svg)](https://travis-ci.org/khufkens/foto)
 [![codecov](https://codecov.io/gh/khufkens/foto/branch/master/graph/badge.svg)](https://codecov.io/gh/khufkens/foto)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/snoteltr)](https://cran.r-project.org/package=foto)
+[![](https://cranlogs.r-pkg.org/badges/snotelr)](https://cran.r-project.org/package=foto)
+<a href="https://www.buymeacoffee.com/H2wlgqCLO" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" height="21px" ></a>
 
 # FOTO
 
@@ -103,7 +106,7 @@ r <- raster::raster(sprintf("%s/extdata/yangambi.png", path.package("foto")))
 # classify pixels using zones (discrete steps)
 output <- foto(r,
      plot = TRUE,
-     windowsize = 25,
+     window_size = 25,
      method = "zones")
 ```
 
@@ -134,7 +137,7 @@ r <- crop(r, extent(1,100,1,100))
 # crop the image
 output <- foto(r,
      plot = TRUE,
-     windowsize = 25,
+     window_size = 25,
      method = "mw")
 #> A moving window approach is computationally intensive.
 #> This might take a while.
@@ -150,6 +153,26 @@ provided but easily accomplished once all images are processed. I refer
 to this paper for the appropriate routines.
 
 ## References
+
+  - Couteron P, Pelissier R, Nicolini E a., Paget D (2005) Predicting
+    tropical forest stand structure parameters from Fourier transform of
+    very high-resolution remotely sensed canopy images. Journal of
+    Applied Ecology, 42, 1121–1128.
+
+  - Ploton P, Pélissier R, Proisy C, Flavenot T, Barbier N, Rai SN,
+    Couteron P (2012) Assessing aboveground tropical forest biomass
+    using Google Earth canopy images. Ecological Applications, 22,
+    993–1003.
+
+  - Barbier N, Couteron P, Proisy C, Malhi Y, Gastellu-Etchegorry J-P
+    (2010) The variation of apparent crown size and canopy heterogeneity
+    across lowland Amazonian forests. Global Ecology and Biogeography,
+    19, 72–84.
+
+  - Proisy C, Couteron P, Fromard F (2007) Predicting and mapping
+    mangrove biomass from canopy grain analysis using Fourier-based
+    textural ordination of IKONOS images. Remote Sensing of Environment,
+    109, 379–392.
 
 ## Acknowledgements
 
