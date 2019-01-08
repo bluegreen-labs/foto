@@ -86,5 +86,4 @@ rspectrum <- function(
     # if not square return i as well (index for mapping)
     return(i)
   }
-  
 }

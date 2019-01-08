@@ -32,7 +32,7 @@ Note that the input matrix should be square or results will be discarded
 \examples{
 
 \donttest{
-load demo data
+# load demo data
 r <- raster::raster(sprintf("\%s/extdata/yangambi.png",
  path.package("foto")))
 

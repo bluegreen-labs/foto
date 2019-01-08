@@ -15,5 +15,11 @@
 
 # standard normalize between 0 - 1
 normalize <- function(x){
-  (x - min(x, na.rm=TRUE))/(max(x,na.rm=TRUE) - min(x, na.rm=TRUE))
+  
+  if (missing(x)){
+    stop("missing vector or matrix")
+  }
+  suppressWarnings(
+    (x - min(x, na.rm=TRUE))/(max(x,na.rm=TRUE) - min(x, na.rm=TRUE))
+  )
 }

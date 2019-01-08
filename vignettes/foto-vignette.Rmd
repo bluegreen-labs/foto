@@ -36,7 +36,6 @@ An additional, moving window, approach is provided which returns an object of th
 The zoned approach on the `foto()` routine returns a nested list with the source data (aggregated zones, fourier components) and a final colour image consisting of the three major principal components for every pixel. An example analysis is run below.
 
 ```{r figure_1, message = FALSE, warning = FALSE, fig.width=7, fig.height=7}
-# load the library
 library(foto)
 
 # load demo data
@@ -74,6 +73,6 @@ print(names(output))
 
 ## Partitioned normalization
 
-Advancedc processing such as partiotioned normalization as described in [Barbier et al. 2010](http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x) is currently not provided in the package. I refer to this paper for the appropriate routines and the raw `foto()` outputs for the necessary data sources.
+Advanced processing such as partiotioned normalization as described in [Barbier et al. 2010](http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x) is currently not provided in the package. I refer to this paper for the appropriate routines and the raw `foto()` outputs for the necessary data sources.
 
 ## References

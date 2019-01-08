@@ -22,7 +22,7 @@
 #' @examples
 #'
 #' \donttest{
-#' load demo data
+#' # load demo data
 #' r <- raster::raster(sprintf("%s/extdata/yangambi.png",
 #'  path.package("foto")))
 #' 
@@ -53,35 +53,37 @@ foto <- function(
     stop("No image or RasterLayer / Stack or Brick provided.")
   }
   
-  # 2. read the image / matrix file and apply extract the r-spectra
-  if (class(x)[1]!="RasterLayer" || class(x)[1]!="RasterBrick" ){  
+  # read the image / matrix file and apply extract the r-spectra
+  if (!grepl("Raster",class(x))){
+    
+    # check file
+    if(!file.exists(x)){
+      stop("Incorrect image path.")
+    }
+    
     # if not a raster object read as image
     img <- raster::brick(x)
     
     # calculate the mean (grayscale)
     # image if there is more than one
     # image band
-    if(raster::nbands(img)>1){
-      img <- mean(img)
-    }
+    img <- raster::mean(img)
   }
   
   if (class(x)[1]=="RasterLayer"){
     img <- x 
   }
   
-  if (class(x)[1]=="RasterBrick"){
-    img <- x
+  if (class(x)[1]=="RasterBrick" ||
+      class(x)[1]=="RasterStack"){
     
     # calculate the mean (grayscale)
     # image if there is more than one
     # image band
-    if(raster::nbands(img)>1){
-      img <- mean(img)
-    }
+      img <- raster::mean(x)
   }
   
-  if(method=="zones"|method=="mw"){
+  if(method == "zones" || method == "mw"){
     if(method=="zones"){
       # get number of cells to be aggregated to
       N <- ceiling(img@nrows/window_size)
@@ -118,8 +120,7 @@ foto <- function(
           x = x,
           w = window_size,
           n = norm_spec,
-          env = env,
-          ...
+          env = env
         )
       },
       expand = TRUE,
@@ -140,8 +141,7 @@ foto <- function(
           x = x,
           w = window_size,
           n = norm_spec,
-          env = env,
-          ...
+          env = env
         )
       },
       expand = TRUE,
@@ -154,7 +154,7 @@ foto <- function(
   output[is.infinite(output)] <- NA
   
   # Normalize matrix column wise (ignoring NA values)
-  noutput <- base::scale(output)
+  noutput <- suppressWarnings(base::scale(output))
   
   # set NA/Inf values to 0 as the pca analys doesn't take NA values
   noutput[is.infinite(noutput) | is.na(noutput)] <- 0
@@ -173,17 +173,15 @@ foto <- function(
   
   # reclassify using the above reclass files
   PC <- lapply(1:3, function(i){
-    return(raster::reclassify(zones, get(paste('rcl.',i,sep=''))))
+    return(raster::reclassify(zones,
+                              get(paste('rcl.',i,sep=''))))
   })
   
-  # create a raster brick and plot the RGB image
-  # made of pca scores, colours correspond to
-  # different scores as split between the scores
-  # of the first three pca axis
+  # create a raster brick
   img_RGB <- do.call("brick", PC)
   
-  # 4. plot the classification using an RGB representation of the first 3 PC
-  if (plot){ # if print is true print the pca classification results
+  # plot the classification using an RGB representation of the first 3 PC
+  if (plot){
     raster::plot(img,
                  col = grDevices::gray(0:100/100),
                  legend = FALSE,
