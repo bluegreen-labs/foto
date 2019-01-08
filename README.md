@@ -20,7 +20,9 @@ al. 2007](http://linkinghub.elsevier.com/retrieve/pii/S0034425707000430),
 [Barbier et
 al. 2010](http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x) and
 [Ploton et
-al. 2012](http://www.esajournals.org/doi/abs/10.1890/11-1606.1).
+al. 2012](http://www.esajournals.org/doi/abs/10.1890/11-1606.1). More
+recently, the code base of this package was used by [Solorzano et
+al. 2018](http://spie.org/Publications/Journal/10.1117/1.JRS.12.036006?SSO=1).
 Although the techiques as presented in these papers is applied on a
 canopy level, the principle works on images of all types.
 
@@ -53,12 +55,10 @@ library("foto")
 ## Use
 
 To classify image texture using the FOTO algorithm use the `foto()`
-function.
-
-The raw rspectra are stored in a table called, output. The normalized
-values are located in noutput. The results of the principal component
-ordination is stored in the pcfit variable. A final classification image
-is stored in a rasterBrick called RGB.
+function. The `foto()` routine returns a nested list with the source
+data (aggregated zones used and fourier components used in the PCA
+analysis) and a final colour image consisting of the three major
+principal components for every pixel.
 
 <details>
 
@@ -86,15 +86,11 @@ implementation is the default, and the least computationally intensive,
 as it effectively reduces to resolution of the orignal data. In short,
 data is aggregated at the size of the specified window.
 
-The `foto()` routine returns a nested list with the source data
-(aggregated zones used and fourier components used in the PCA analysis)
-and a final colour image consisting of the three major principal
-components for every pixel.
-
 An example analysis is run below. In the resulting image pixels with a
 similar colour have a similar texture. The analysis is run a historical
-image of plantations near Yangambi, DR Congo. The regular pattern of
-planted trees is picked up readily by the algorithm.
+image of plantations near Yangambi, DR Congo, as recovered in the
+[COBECORE project](http://cobecore.org/). The regular pattern of planted
+trees is picked up readily by the algorithm.
 
 ``` r
 # load the library
@@ -173,6 +169,12 @@ to this paper for the appropriate routines.
     mangrove biomass from canopy grain analysis using Fourier-based
     textural ordination of IKONOS images. Remote Sensing of Environment,
     109, 379–392.
+
+  - Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018)
+    Contrasting the potential of Fourier transformed ordination and gray
+    level co-occurrence matrix textures to model a tropical swamp forest
+    ’ s structural and diversity attributes. Journal of Applied Remote
+    Sensing, 12, 036006.
 
 ## Acknowledgements
 

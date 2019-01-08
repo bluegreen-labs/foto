@@ -21,7 +21,7 @@ library(raster)
 
 # FOTO
 
-The FOTO (Fourier Transform Textural Ordination) method uses a principal component analysis (PCA) on radially averaged 2D fourier spectra to characterize (greyscale) image texture. The FOTO method was used in [Couteron et al. 2005](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2664.2005.01097.x/abstract;jsessionid=359DD0662C272A59AF94FAEF3F213156.f02t04), [Proisy et al. 2007](http://linkinghub.elsevier.com/retrieve/pii/S0034425707000430), [Barbier et al. 2010](http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x) and [Ploton et al. 2012](http://www.esajournals.org/doi/abs/10.1890/11-1606.1). Although the techiques as presented in these papers is applied on a canopy level, the principle works on images of all types.
+The FOTO (Fourier Transform Textural Ordination) method uses a principal component analysis (PCA) on radially averaged 2D fourier spectra to characterize (greyscale) image texture. The FOTO method was used in [Couteron et al. 2005](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2664.2005.01097.x/abstract;jsessionid=359DD0662C272A59AF94FAEF3F213156.f02t04), [Proisy et al. 2007](http://linkinghub.elsevier.com/retrieve/pii/S0034425707000430), [Barbier et al. 2010](http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x) and [Ploton et al. 2012](http://www.esajournals.org/doi/abs/10.1890/11-1606.1). More recently, the code base of this package was used by [Solorzano et al. 2018](http://spie.org/Publications/Journal/10.1117/1.JRS.12.036006?SSO=1). Although the techiques as presented in these papers is applied on a canopy level, the principle works on images of all types.
 
 ## Installation
 
@@ -49,9 +49,7 @@ library("foto")
 
 ## Use
 
-To classify image texture using the FOTO algorithm use the `foto()` function.
-
-The raw rspectra are stored in a table called, output. The normalized values are located in noutput. The results of the principal component ordination is stored in the pcfit variable. A final classification image is stored in a rasterBrick called RGB.
+To classify image texture using the FOTO algorithm use the `foto()` function. The `foto()` routine returns a nested list with the source data (aggregated zones used and fourier components used in the PCA analysis) and a final colour image consisting of the three major principal components for every pixel.
 
 <details><summary>detailed parameter description (click to expand)</summary>
 <p>
@@ -70,9 +68,7 @@ method | "zones" or "mw" (i.e. moving window)
 
 The original implementation used discrete zones (blocks of x pixels wide, window_size parameter) to classify an image. This original implementation is the default, and the least computationally intensive, as it effectively reduces to resolution of the orignal data. In short, data is aggregated at the size of the specified window. 
 
-The `foto()` routine returns a nested list with the source data (aggregated zones used and fourier components used in the PCA analysis) and a final colour image consisting of the three major principal components for every pixel.
-
-An example analysis is run below. In the resulting image pixels with a similar colour have a similar texture. The analysis is run a historical image of plantations near Yangambi, DR Congo. The regular pattern of planted trees is picked up readily by the algorithm.
+An example analysis is run below. In the resulting image pixels with a similar colour have a similar texture. The analysis is run a historical image of plantations near Yangambi, DR Congo, as recovered in the [COBECORE project](http://cobecore.org/). The regular pattern of planted trees is picked up readily by the algorithm.
 
 ```{r figure_1, fig.width=7, fig.height=7, message = FALSE, warning = FALSE, fig.path = "docs/"}
 # load the library
@@ -120,6 +116,8 @@ Partiotioned normalization as described in [Barbier et al. 2010](http://doi.wile
 - Barbier N, Couteron P, Proisy C, Malhi Y, Gastellu-Etchegorry J-P (2010) The variation of apparent crown size and canopy heterogeneity across lowland Amazonian forests. Global Ecology and Biogeography, 19, 72–84.
 
 - Proisy C, Couteron P, Fromard F (2007) Predicting and mapping mangrove biomass from canopy grain analysis using Fourier-based textural ordination of IKONOS images. Remote Sensing of Environment, 109, 379–392.
+
+- Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018) Contrasting the potential of Fourier transformed ordination and gray level co-occurrence matrix textures to model a tropical swamp forest ’ s structural and diversity attributes. Journal of Applied Remote Sensing, 12, 036006.
 
 ## Acknowledgements
 
