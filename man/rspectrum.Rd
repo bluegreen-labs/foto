@@ -13,22 +13,15 @@ rspectrum(x, w, n = TRUE, env, ...)
 
 \item{n}{normalize, bolean \code{TRUE} or \code{FALSE}}
 
+\item{env}{local environment to evaluate}
+
 \item{...}{additional parameters to forward}
 }
 \value{
 returns a radial spectrum value for the matrix
 }
 \description{
-Note that the input matrix should be square or results will be discarded
-}
-\examples{
-
-\donttest{
-# read in raster
-
-# calculate spectrum
-
-}
+This is an internal function and not to be used stand-alone.
 }
 \seealso{
 \code{\link[foto]{foto}}

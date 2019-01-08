@@ -4,21 +4,22 @@
 \alias{foto}
 \title{Calculates FOTO classification of texture}
 \usage{
-foto(x, windowsize = 61, method = "zones", plot = FALSE,
-  rspectrum.n = TRUE)
+foto(x, window_size = 61, method = "zones", plot = FALSE,
+  norm_spec = TRUE)
 }
 \arguments{
-\item{x}{a raster layer}
+\item{x}{a raster layer / brick or stack, multilayered images (RGB or
+otherwise) are averaged to a single layer raster}
+
+\item{window_size}{a moving window size in pixels (default = 61 pixels)}
 
 \item{method}{zones (for discrete zones) or mw for a moving window
 approach}
 
 \item{plot}{plot output, bolean \code{TRUE} or \code{FALSE}}
 
-\item{rspectrum.n}{normalize radial spectrum,
+\item{norm_spec}{normalize radial spectrum,
 bolean \code{TRUE} or \code{FALSE}}
-
-\item{window_size}{a moving window size, default = 64 pixels}
 }
 \value{
 returns a radial spectrum for a moving window across a

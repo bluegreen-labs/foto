@@ -81,7 +81,7 @@ r <- raster::raster(sprintf("%s/extdata/yangambi.png", path.package("foto")))
 # classify pixels using zones (discrete steps)
 output <- foto(r,
      plot = TRUE,
-     windowsize = 25,
+     window_size = 25,
      method = "zones")
 
 # print data structure
@@ -100,7 +100,7 @@ r <- crop(r, extent(1,100,1,100))
 # crop the image
 output <- foto(r,
      plot = TRUE,
-     windowsize = 25,
+     window_size = 25,
      method = "mw")
 ```
 

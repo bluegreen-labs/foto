@@ -1,25 +1,16 @@
 #' Calculates a radial spectrum
 #'
-#' Note that the input matrix should be square or results will be discarded 
-#  the output is an increment to i (global) and data that is
-#  written matrix 'output' (global) to be defined up front. 
+#' This is an internal function and not to be used stand-alone.
 #'
 #' @param x a square matrix
 #' @param w a moving window size
 #' @param n normalize, bolean \code{TRUE} or \code{FALSE}
+#' @param env local environment to evaluate
 #' @param ... additional parameters to forward
 #' @return returns a radial spectrum value for the matrix
 #' @keywords foto, radial spectrum
 #' @seealso \code{\link[foto]{foto}}
 #' @export
-#' @examples
-#'
-#' \donttest{
-#' # read in raster
-#' 
-#' # calculate spectrum
-#' 
-#'}
 
 rspectrum <- function(
   x,
@@ -43,7 +34,7 @@ rspectrum <- function(
     im <- matrix(x,w,w)
     
     # extract the squared amplitude of the FFT
-    fftim <- Mod(fft(im))^2
+    fftim <- Mod(stats::fft(im))^2
     
     # calculate distance from the center of the image
     offset <- ceiling(dim(im)[1]/2)
@@ -55,17 +46,18 @@ rspectrum <- function(
     # calculate the mean spectrum for distances r
     # (note: reverse the order of the results to center
     # the FFT spectrum)
-    rspec <- rev(zonal(raster(fftim),
-                       raster(r),
-                       fun = 'mean',
-                       na.rm = TRUE)[,2])
+    rspec <- rev(raster::zonal(
+      raster::raster(fftim),
+      raster::raster(r),
+      fun = 'mean',
+      na.rm = TRUE)[,2])
         
     if (n){
       
       # Normalize by dividing with the image standard deviation
       # publictions are inconsisten on the use of normalization
       # need to clarify this better.
-      rspec <- rspec/sd(im,na.rm=TRUE)
+      rspec <- rspec/stats::sd(im,na.rm=TRUE)
     
     }    
     
