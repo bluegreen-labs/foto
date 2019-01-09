@@ -7,10 +7,9 @@
 #' @param n normalize, bolean \code{TRUE} or \code{FALSE}
 #' @param env local environment to evaluate
 #' @param ... additional parameters to forward
-#' @return returns a radial spectrum value for the matrix
+#' @return Returns a radial spectrum values for the image used
+#' in order to classify texture using a PCA (or other) analysis.
 #' @keywords foto, radial spectrum
-#' @seealso \code{\link[foto]{foto}}
-#' @export
 
 rspectrum <- function(
   x,

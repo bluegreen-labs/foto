@@ -13,14 +13,7 @@ normalize(x)
 returns a normalized matrix or vector
 }
 \description{
-Normalize values between 0 and 1
-}
-\examples{
-
-\donttest{
-x <- c(1,5,10)
-print(normalize(x))
-}
+Normalize values between 0 and 1, internal function only.
 }
 \keyword{foto,}
 \keyword{normalization}

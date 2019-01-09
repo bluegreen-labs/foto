@@ -97,7 +97,9 @@ planted trees is picked up readily by the algorithm.
 library(foto)
 
 # load demo data
-r <- raster::raster(sprintf("%s/extdata/yangambi.png", path.package("foto")))
+r <- raster::raster(system.file("extdata", "yangambi.png",
+                          package = "foto",
+                          mustWork = TRUE))
 
 # classify pixels using zones (discrete steps)
 output <- foto(r,
@@ -170,7 +172,7 @@ to this paper for the appropriate routines.
     textural ordination of IKONOS images. Remote Sensing of Environment,
     109, 379–392.
 
-  - Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018)
+  - Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018)
     Contrasting the potential of Fourier transformed ordination and gray
     level co-occurrence matrix textures to model a tropical swamp forest
     ’ s structural and diversity attributes. Journal of Applied Remote

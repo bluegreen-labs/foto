@@ -33,8 +33,8 @@ Note that the input matrix should be square or results will be discarded
 
 \donttest{
 # load demo data
-r <- raster::raster(sprintf("\%s/extdata/yangambi.png",
- path.package("foto")))
+r <- raster::raster(system.file("extdata", "yangambi.png", package = "foto",
+     mustWork = TRUE))
 
 # classify pixels using zones (discrete steps)
 output <- foto(r,

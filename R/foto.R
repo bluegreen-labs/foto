@@ -23,8 +23,8 @@
 #'
 #' \donttest{
 #' # load demo data
-#' r <- raster::raster(sprintf("%s/extdata/yangambi.png",
-#'  path.package("foto")))
+#' r <- raster::raster(system.file("extdata", "yangambi.png", package = "foto",
+#'      mustWork = TRUE))
 #' 
 #' # classify pixels using zones (discrete steps)
 #' output <- foto(r,
