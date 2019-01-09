@@ -9,7 +9,7 @@ Authors@R: c(
 		  role = c("aut", "cre")),
 		  person(
       family = "Solorzano",
-      given = "Jonathan",
+      given = "Jonathan V.",
 		  role = c("aut")))
 Description: The FOTO method uses a principal component analysis (PCA) 
   on radially averaged 2D fourier spectra to 
