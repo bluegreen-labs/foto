@@ -12,7 +12,7 @@ Authors@R: c(
       given = "Jonathan V.",
 		  role = c("aut")))
 Description: The FOTO method uses a principal component analysis (PCA) 
-  on radially averaged 2D fourier spectra to 
+  on radially averaged two dimensional fourier spectra to 
   characterize (greyscale) image texture.
 URL: https://github.com/khufkens/foto
 BugReports: https://github.com/khufkens/foto/issues
