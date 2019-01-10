@@ -83,7 +83,7 @@
       <h1>foto</h1>
                         <h4 class="author">Koen Hufkens</h4>
             
-            <h4 class="date">2019-01-09</h4>
+            <h4 class="date">2019-01-10</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/khufkens/foto/blob/master/vignettes/foto-vignette.Rmd"><code>vignettes/foto-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>foto-vignette.Rmd</code></div>
@@ -95,7 +95,7 @@
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
-<p>The FOTO (Fourier Transform Textural Ordination) method uses a principal component analysis (PCA) on radially averaged 2D fourier spectra to characterize (greyscale) image texture. The FOTO method was used in <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2664.2005.01097.x/abstract;jsessionid=359DD0662C272A59AF94FAEF3F213156.f02t04">Couteron et al. 2005</a>, <a href="http://linkinghub.elsevier.com/retrieve/pii/S0034425707000430">Proisy et al. 2007</a>, <a href="http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x">Barbier et al. 2010</a> and <a href="http://www.esajournals.org/doi/abs/10.1890/11-1606.1">Ploton et al. 2012</a>. Although the techiques as presented in these papers is applied on a canopy level, the principle works on images of all types.</p>
+<p>The FOTO (Fourier Transform Textural Ordination) method uses a principal component analysis (PCA) on radially averaged 2D fourier spectra to characterize (greyscale) image texture (of canopies).</p>
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h2>
@@ -104,7 +104,7 @@
 <div id="zones" class="section level3">
 <h3 class="hasAnchor">
 <a href="#zones" class="anchor"></a>Zones</h3>
-<p>The zoned approach on the <code><a href="../reference/foto.html">foto()</a></code> routine returns a nested list with the source data (aggregated zones, fourier components) and a final colour image consisting of the three major principal components for every pixel. An example analysis is run below.</p>
+<p>The zoned approach on the <code><a href="../reference/foto.html">foto()</a></code> routine returns a nested list with the source data (aggregation zones, radial spectra) and a final colour image consisting of the three major principal components for every pixel. An example analysis is run below.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(foto)</a>
 <a class="sourceLine" id="cb1-2" title="2"></a>
 <a class="sourceLine" id="cb1-3" title="3"><span class="co"># load demo data</span></a>

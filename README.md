@@ -12,16 +12,12 @@ Status](https://travis-ci.org/khufkens/foto.svg)](https://travis-ci.org/khufkens
 
 The FOTO (Fourier Transform Textural Ordination) method uses a principal
 component analysis (PCA) on radially averaged 2D Fourier spectra to
-characterize (grayscale) image texture. The FOTO method was used in
+characterize (grayscale) image texture. The FOTO method was described by
 [Couteron et
-al. 2005](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2664.2005.01097.x/abstract;jsessionid=359DD0662C272A59AF94FAEF3F213156.f02t04),
-[Proisy et
-al. 2007](http://linkinghub.elsevier.com/retrieve/pii/S0034425707000430),
-[Barbier et
-al. 2010](http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x) and
-[Ploton et
-al. 2012](http://www.esajournals.org/doi/abs/10.1890/11-1606.1). More
-recently, the code base of this package was used by [Solorzano et
+al. 2005](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2664.2005.01097.x/abstract;jsessionid=359DD0662C272A59AF94FAEF3F213156.f02t04)
+to quantify canopy stucture in relation to biomass and biodiversity.
+More recently, the code base of this package was used in a similar study
+by [Solorzano et
 al. 2018](http://spie.org/Publications/Journal/10.1117/1.JRS.12.036006?SSO=1).
 Although the techiques as presented in these papers is applied on a
 canopy level, the principle works on images of all types.
@@ -30,7 +26,12 @@ canopy level, the principle works on images of all types.
 
 ### stable release
 
-No stable release on CRAN, working on it.
+To install the current stable release use a CRAN repository:
+
+``` r
+install.packages("foto")
+library("foto")
+```
 
 ### development release
 
@@ -157,20 +158,10 @@ to this paper for the appropriate routines.
     very high-resolution remotely sensed canopy images. Journal of
     Applied Ecology, 42, 1121–1128.
 
-  - Ploton P, Pélissier R, Proisy C, Flavenot T, Barbier N, Rai SN,
-    Couteron P (2012) Assessing aboveground tropical forest biomass
-    using Google Earth canopy images. Ecological Applications, 22,
-    993–1003.
-
   - Barbier N, Couteron P, Proisy C, Malhi Y, Gastellu-Etchegorry J-P
     (2010) The variation of apparent crown size and canopy heterogeneity
     across lowland Amazonian forests. Global Ecology and Biogeography,
     19, 72–84.
-
-  - Proisy C, Couteron P, Fromard F (2007) Predicting and mapping
-    mangrove biomass from canopy grain analysis using Fourier-based
-    textural ordination of IKONOS images. Remote Sensing of Environment,
-    109, 379–392.
 
   - Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018)
     Contrasting the potential of Fourier transformed ordination and gray

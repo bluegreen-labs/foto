@@ -196,6 +196,6 @@ foto <- function(
   
   # return data
   return(list("zones" = zones, 
-              "output" = output,
-              "RGB" = img_RGB))
+              "radial_spectra" = output,
+              "rgb" = img_RGB))
 }
