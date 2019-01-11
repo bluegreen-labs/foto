@@ -115,7 +115,7 @@ output <- foto(r,
 
 # print data structure
 print(names(output))
-#> [1] "zones"  "output" "RGB"
+#> [1] "zones"          "radial_spectra" "rgb"
 ```
 
 ### Moving window
@@ -163,7 +163,7 @@ to this paper for the appropriate routines.
     across lowland Amazonian forests. Global Ecology and Biogeography,
     19, 72–84.
 
-  - Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018)
+  - Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018)
     Contrasting the potential of Fourier transformed ordination and gray
     level co-occurrence matrix textures to model a tropical swamp forest
     ’ s structural and diversity attributes. Journal of Applied Remote
