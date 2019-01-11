@@ -18,7 +18,6 @@
 #' @keywords foto, radial spectrum
 #' @seealso \code{\link[foto]{rspectrum}}
 #' @importFrom raster brick
-#' @import rgdal
 #' @export
 #' @examples
 #'
