@@ -1,19 +1,13 @@
 Package: foto
+Version: 1.0.1
 Title: Fourier Transform Textural Ordination
-Version: 1.0.0
-Authors@R: c(
-      person(
-      family = "Hufkens",
-      given = "Koen",
-		  email = "koen.hufkens@gmail.com",
-		  role = c("aut", "cre")),
-		  person(
-      family = "Solorzano",
-      given = "Jonathan V.",
-		  role = c("aut")))
 Description: The Fourier Transform Textural Ordination method 
   uses a principal component analysis on radially averaged
-  two dimensional Fourier spectra to characterize image texture.
+  two dimensional Fourier spectra to characterize image texture. The method
+  within the context of ecology was first described by Couteron et al. (2005)
+  <doi:10.1111/j.1365-2664.2005.01097.x> and expanded upon by
+  Solorzano et al. (2018) <doi:10.1117/1.JRS.12.036006>
+  using a moving window approach.
 URL: https://github.com/khufkens/foto
 BugReports: https://github.com/khufkens/foto/issues
 Depends:
@@ -23,6 +17,11 @@ Imports:
     stats,
     grDevices
 License: AGPL-3
+Authors@R: c(
+      person("Koen", "Hufkens", email = "koen.hufkens@gmail.com",
+		  comment = c(ORCID = "0000-0002-5070-8109"),
+		  role = c("aut", "cre")),
+		  person("Jonathan V.", "Solorzano", role = c("aut")))
 LazyData: true
 ByteCompile: true
 RoxygenNote: 6.1.1

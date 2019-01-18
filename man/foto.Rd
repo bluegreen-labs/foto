@@ -31,20 +31,19 @@ Note that the input matrix should be square or results will be discarded
 }
 \examples{
 
-\donttest{
 # load demo data
-r <- raster::raster(system.file("extdata", "yangambi.png", package = "foto",
+r <- raster::raster(system.file("extdata",
+ "yangambi.png", package = "foto",
      mustWork = TRUE))
 
 # classify pixels using zones (discrete steps)
 output <- foto(r,
-               plot = TRUE,
+               plot = FALSE,
                window_size = 25,
                method = "zones")
 
 # print data structure
 print(names(output))
-}
 }
 \seealso{
 \code{\link[foto]{rspectrum}}
