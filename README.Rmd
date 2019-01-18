@@ -64,7 +64,7 @@ Parameter     | Description
 x	      | a raster layer (stack or brick)
 window_size	      | a window size in pixels
 plot           | plot output (TRUE / FALSE)
-normalize           | normalize the radial spectrum (TRUE / FALSE)
+norm_spec           | normalize the radial spectrum (TRUE / FALSE)
 method | "zones" or "mw" (i.e. moving window)
 </p>
 </details>

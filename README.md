@@ -72,7 +72,7 @@ principal components for every pixel.
 | x            | a raster layer (stack or brick)              |
 | window\_size | a window size in pixels                      |
 | plot         | plot output (TRUE / FALSE)                   |
-| normalize    | normalize the radial spectrum (TRUE / FALSE) |
+| norm\_spec   | normalize the radial spectrum (TRUE / FALSE) |
 | method       | “zones” or “mw” (i.e. moving window)         |
 
 </p>
