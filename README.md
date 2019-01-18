@@ -4,7 +4,7 @@
 [![Build
 Status](https://travis-ci.org/khufkens/foto.svg)](https://travis-ci.org/khufkens/foto)
 [![codecov](https://codecov.io/gh/khufkens/foto/branch/master/graph/badge.svg)](https://codecov.io/gh/khufkens/foto)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/snoteltr)](https://cran.r-project.org/package=foto)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/foto)](https://cran.r-project.org/package=foto)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/foto)](https://cran.r-project.org/package=foto)
 <a href="https://www.buymeacoffee.com/H2wlgqCLO" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" height="21px" ></a>
 
@@ -39,7 +39,7 @@ To install the development releases of the package run the following
 commands:
 
 ``` r
-if(!require(devtools)){install.package("devtools")}
+if(!require(devtools)){install.packages("devtools")}
 devtools::install_github("khufkens/foto")
 library("foto")
 ```
@@ -48,7 +48,7 @@ Vignettes are not rendered by default, if you want to include additional
 documentation please use:
 
 ``` r
-if(!require(devtools)){install.package("devtools")}
+if(!require(devtools)){install.packages("devtools")}
 devtools::install_github("khufkens/foto", build_vignettes = TRUE)
 library("foto")
 ```
