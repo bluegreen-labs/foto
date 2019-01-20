@@ -158,8 +158,14 @@ foto <- function(
   # set NA/Inf values to 0 as the pca analys doesn't take NA values
   noutput[is.infinite(noutput) | is.na(noutput)] <- 0
   
+  # find the location of all zero rows (empty)
+  zero_location <- apply(noutput, 1, function(x)all(x == 0))
+  
   # the principal component analysis
   pcfit <- stats::princomp(noutput)
+  
+  # set empty (zeros) rows to NA
+  pcfit$scores[which(zero_location),] <- NA
   
   # create reclass files based upon PCA scores
   # only the first 3 PC will be considered
