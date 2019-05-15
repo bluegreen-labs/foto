@@ -46,9 +46,6 @@ output <- foto(r,
      plot = TRUE,
      window_size = 25,
      method = "zones")
-
-# print data structure
-print(names(output))
 ```
 
 In the resulting image pixels with a similar colour have a similar texture. The analysis is run a historical image of plantations near Yangambi, DR Congo. The regular pattern of planted trees is picked up readily by the algorithm.
@@ -59,20 +56,56 @@ Below you find an example analyis for a subsection of the processed image above.
 
 ```{r figure_2, fig.width=7, fig.height=7}
 # crop the image for speed
-r <- crop(r, extent(1,100,1,100))
+r_1 <- crop(r, extent(1,100,1,100))
 
 # crop the image
-output <- foto(r,
+output_1 <- foto(r_1,
      plot = TRUE,
      window_size = 25,
      method = "mw")
-
-# print data structure
-print(names(output))
 ```
+
+## Global normalization
+
+Global normalization over a batch of images is supported through the `foto_batch()` function. This centers the radial spectra across all images in a particular directory, so either spatial or temporal comparisons can be made between different images. An example is given below for a batch of two images. The top shows the original images, the middle the normalized ones (look at the correspondence on the edges), the bottom are the data for the individually processed images. The latter still look alike, but are not exactly comparable in a one-to-one analysis.
+
+```{r warning=FALSE, message=FALSE}
+# load demo data path
+path <- system.file("extdata",package="foto")
+
+# classify pixels using zones (discrete steps)
+# across images
+output_batch <- foto_batch(path = path,
+                window_size = 25,
+                method = "zones")
+
+# indiviual images would look different when processed one by one
+r_2 <- raster::raster(sprintf("%s/extdata/yangambi_2.png",
+                              path.package("foto")))
+
+# classify pixels using zones (discrete steps)
+output_2 <- foto(r_2,
+     window_size = 25,
+     method = "zones")
+```
+
+
+
+```{r figure_3, fig.width=7, fig.height=4}
+par(mfrow = c(1,2))
+plot(r_2, col = grey.colors(100), axes = FALSE, legend = FALSE, box = FALSE)
+plot(r, col = grey.colors(100), axes = FALSE, legend = FALSE, box = FALSE)
+
+par(mfrow = c(1,2))
+plotRGB(output_batch[[1]], stretch = "hist")
+plotRGB(output_batch[[2]], stretch = "hist")
+
+par(mfrow = c(1,2))
+plotRGB(output_2$rgb, stretch = "hist")
+plotRGB(output$rgb, stretch = "hist")
+```
+
 
 ## Partitioned normalization
 
 Advanced processing such as partiotioned normalization as described in [Barbier et al. 2010](http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x) is currently not provided in the package. I refer to this paper for the appropriate routines and the raw `foto()` outputs for the necessary data sources.
-
-## References
