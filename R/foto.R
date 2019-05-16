@@ -21,6 +21,7 @@
 #' @export
 #' @examples
 #'
+#'\dontrun{
 #' # load demo data
 #' r <- raster::raster(system.file("extdata",
 #'  "yangambi.png", package = "foto",
@@ -34,6 +35,7 @@
 #' 
 #' # print data structure
 #' print(names(output))
+#' }
 
 
 foto <- function(
@@ -107,7 +109,7 @@ foto <- function(
   }
   
   # see rspectrum function above
-  i <- 0
+  i <- 1
   
   # for every zone execute the r-spectrum function
   if(method=="zones"){
@@ -171,7 +173,7 @@ foto <- function(
   # only the first 3 PC will be considered
   for (i in 1:3){
     assign(paste('rcl.',i,sep=''),
-           cbind(seq(1, length(pcfit$scores[,i]), 1),
+           cbind(seq(1, nrow(pcfit$scores), 1),
                  normalize(pcfit$scores[,i])),
            envir = env)
   }  

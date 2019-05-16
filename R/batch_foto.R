@@ -16,6 +16,7 @@
 #' @export
 #' @examples
 #'
+#'\dontrun{
 #' # load demo data path
 #' path <- system.file("extdata",package="foto")
 #' 
@@ -23,6 +24,7 @@
 #' output <- foto_batch(path = path,
 #'                window_size = 25,
 #'                method = "zones")
+#'}
 
 foto_batch <- function(
   path,

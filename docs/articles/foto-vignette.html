@@ -83,7 +83,7 @@
       <h1>foto</h1>
                         <h4 class="author">Koen Hufkens</h4>
             
-            <h4 class="date">2019-05-15</h4>
+            <h4 class="date">2019-05-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/khufkens/foto/blob/master/vignettes/foto-vignette.Rmd"><code>vignettes/foto-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>foto-vignette.Rmd</code></div>
@@ -113,7 +113,7 @@
 <a class="sourceLine" id="cb1-6" title="6"><span class="co"># classify pixels using zones (discrete steps)</span></a>
 <a class="sourceLine" id="cb1-7" title="7">output &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto.html">foto</a></span>(r,</a>
 <a class="sourceLine" id="cb1-8" title="8">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-9" title="9">     <span class="dt">window_size =</span> <span class="dv">25</span>,</a>
+<a class="sourceLine" id="cb1-9" title="9">     <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
 <a class="sourceLine" id="cb1-10" title="10">     <span class="dt">method =</span> <span class="st">"zones"</span>)</a></code></pre></div>
 <p><img src="foto-vignette_files/figure-html/figure_1-1.png" width="672"></p>
 <p>In the resulting image pixels with a similar colour have a similar texture. The analysis is run a historical image of plantations near Yangambi, DR Congo. The regular pattern of planted trees is picked up readily by the algorithm.</p>
@@ -128,7 +128,7 @@
 <a class="sourceLine" id="cb2-4" title="4"><span class="co"># crop the image</span></a>
 <a class="sourceLine" id="cb2-5" title="5">output_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto.html">foto</a></span>(r_<span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb2-6" title="6">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb2-7" title="7">     <span class="dt">window_size =</span> <span class="dv">25</span>,</a>
+<a class="sourceLine" id="cb2-7" title="7">     <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
 <a class="sourceLine" id="cb2-8" title="8">     <span class="dt">method =</span> <span class="st">"mw"</span>)</a>
 <a class="sourceLine" id="cb2-9" title="9"><span class="co">#&gt; A moving window approach is computationally intensive.</span></a>
 <a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; This might take a while.</span></a></code></pre></div>
@@ -145,7 +145,7 @@
 <a class="sourceLine" id="cb3-4" title="4"><span class="co"># classify pixels using zones (discrete steps)</span></a>
 <a class="sourceLine" id="cb3-5" title="5"><span class="co"># across images</span></a>
 <a class="sourceLine" id="cb3-6" title="6">output_batch &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto_batch.html">foto_batch</a></span>(<span class="dt">path =</span> path,</a>
-<a class="sourceLine" id="cb3-7" title="7">                <span class="dt">window_size =</span> <span class="dv">25</span>,</a>
+<a class="sourceLine" id="cb3-7" title="7">                <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
 <a class="sourceLine" id="cb3-8" title="8">                <span class="dt">method =</span> <span class="st">"zones"</span>)</a>
 <a class="sourceLine" id="cb3-9" title="9"></a>
 <a class="sourceLine" id="cb3-10" title="10"><span class="co"># indiviual images would look different when processed one by one</span></a>
@@ -154,7 +154,7 @@
 <a class="sourceLine" id="cb3-13" title="13"></a>
 <a class="sourceLine" id="cb3-14" title="14"><span class="co"># classify pixels using zones (discrete steps)</span></a>
 <a class="sourceLine" id="cb3-15" title="15">output_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto.html">foto</a></span>(r_<span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb3-16" title="16">     <span class="dt">window_size =</span> <span class="dv">25</span>,</a>
+<a class="sourceLine" id="cb3-16" title="16">     <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
 <a class="sourceLine" id="cb3-17" title="17">     <span class="dt">method =</span> <span class="st">"zones"</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/par">par</a></span>(<span class="dt">mfrow =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb4-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(r_<span class="dv">2</span>, <span class="dt">col =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/gray.colors">grey.colors</a></span>(<span class="dv">100</span>), <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">legend =</span> <span class="ot">FALSE</span>, <span class="dt">box =</span> <span class="ot">FALSE</span>)</a>

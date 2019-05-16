@@ -31,6 +31,7 @@ Note that the input matrix should be square or results will be discarded
 }
 \examples{
 
+\dontrun{
 # load demo data
 r <- raster::raster(system.file("extdata",
  "yangambi.png", package = "foto",
@@ -44,6 +45,7 @@ output <- foto(r,
 
 # print data structure
 print(names(output))
+}
 }
 \seealso{
 \code{\link[foto]{rspectrum}}

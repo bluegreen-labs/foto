@@ -44,7 +44,7 @@ r <- raster::raster(sprintf("%s/extdata/yangambi.png", path.package("foto")))
 # classify pixels using zones (discrete steps)
 output <- foto(r,
      plot = TRUE,
-     window_size = 25,
+     window_size = 51,
      method = "zones")
 ```
 
@@ -61,7 +61,7 @@ r_1 <- crop(r, extent(1,100,1,100))
 # crop the image
 output_1 <- foto(r_1,
      plot = TRUE,
-     window_size = 25,
+     window_size = 51,
      method = "mw")
 ```
 
@@ -76,7 +76,7 @@ path <- system.file("extdata",package="foto")
 # classify pixels using zones (discrete steps)
 # across images
 output_batch <- foto_batch(path = path,
-                window_size = 25,
+                window_size = 51,
                 method = "zones")
 
 # indiviual images would look different when processed one by one
@@ -85,7 +85,7 @@ r_2 <- raster::raster(sprintf("%s/extdata/yangambi_2.png",
 
 # classify pixels using zones (discrete steps)
 output_2 <- foto(r_2,
-     window_size = 25,
+     window_size = 51,
      method = "zones")
 ```
 
