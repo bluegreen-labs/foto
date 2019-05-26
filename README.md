@@ -145,7 +145,7 @@ output <- foto(r,
 
 ## Partitioned normalization
 
-Partiotioned normalization as described in [Barbier et
+Partitioned normalization as described in [Barbier et
 al. 2010](http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x) is not
 provided but easily accomplished once all images are processed. I refer
 to this paper for the appropriate routines.
