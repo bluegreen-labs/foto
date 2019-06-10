@@ -1,13 +1,15 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+# FOTO
+
+---
+
 [![Build
 Status](https://travis-ci.org/khufkens/foto.svg)](https://travis-ci.org/khufkens/foto)
 [![codecov](https://codecov.io/gh/khufkens/foto/branch/master/graph/badge.svg)](https://codecov.io/gh/khufkens/foto)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/foto)](https://cran.r-project.org/package=foto)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/foto)](https://cran.r-project.org/package=foto)
-
-# FOTO
 
 The FOTO (Fourier Transform Textural Ordination) method uses a principal
 component analysis (PCA) on radially averaged 2D Fourier spectra to
@@ -114,7 +116,7 @@ output <- foto(r,
 
 # print data structure
 print(names(output))
-#> [1] "zones"  "output" "RGB"
+#> [1] "zones"          "radial_spectra" "rgb"
 ```
 
 ### Moving window
@@ -162,7 +164,7 @@ to this paper for the appropriate routines.
     across lowland Amazonian forests. Global Ecology and Biogeography,
     19, 72–84.
 
-  - Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018)
+  - Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018)
     Contrasting the potential of Fourier transformed ordination and gray
     level co-occurrence matrix textures to model a tropical swamp forest
     ’ s structural and diversity attributes. Journal of Applied Remote
