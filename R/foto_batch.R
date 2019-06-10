@@ -118,6 +118,9 @@ foto_batch <- function(
       return(img_RGB)
   })
   
+  # assign file names to nested list
+  names(pc_images) <- basename(files)
+  
   # return all image files
   return(pc_images)
 }
