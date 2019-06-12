@@ -1,5 +1,5 @@
 Package: foto
-Version: 1.0.1
+Version: 1.0.2
 Title: Fourier Transform Textural Ordination
 Description: The Fourier Transform Textural Ordination method 
   uses a principal component analysis on radially averaged
