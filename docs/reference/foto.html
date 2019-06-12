@@ -125,8 +125,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>foto</span>(<span class='no'>x</span>, <span class='kw'>window_size</span> <span class='kw'>=</span> <span class='fl'>61</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"zones"</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>norm_spec</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>foto</span>(<span class='no'>x</span>, <span class='kw'>window_size</span> <span class='kw'>=</span> <span class='fl'>61</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"zones"</span>, <span class='kw'>norm_spec</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>pca</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -147,13 +147,19 @@ a single layer raster</p></td>
 approach</p></td>
     </tr>
     <tr>
-      <th>plot</th>
-      <td><p>plot output, bolean <code>TRUE</code> or <code>FALSE</code></p></td>
-    </tr>
-    <tr>
       <th>norm_spec</th>
       <td><p>normalize radial spectrum,
 bolean <code>TRUE</code> or <code>FALSE</code></p></td>
+    </tr>
+    <tr>
+      <th>pca</th>
+      <td><p>execute PCA, <code>TRUE</code> or <code>FALSE</code>. If <code>FALSE</code> only
+the radial spectra are returned for additional manipulation. Plotting is
+ignored if set to <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>plot</th>
+      <td><p>plot output, bolean <code>TRUE</code> or <code>FALSE</code></p></td>
     </tr>
     </table>
     

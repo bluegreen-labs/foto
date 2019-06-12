@@ -8,11 +8,14 @@
 #' for multilayered images (RGB or otherwise) data are averaged to 
 #' a single layer raster
 #' @param window_size a moving window size in pixels (default = 61 pixels)
-#' @param plot plot output, bolean \code{TRUE} or \code{FALSE}
 #' @param method zones (for discrete zones) or mw for a moving window
 #' approach
+#' @param pca execute PCA, \code{TRUE} or \code{FALSE}. If \code{FALSE} only
+#' the radial spectra are returned for additional manipulation. Plotting is
+#' ignored if set to \code{FALSE}.
 #' @param norm_spec normalize radial spectrum,
 #' bolean \code{TRUE} or \code{FALSE}
+#' @param plot plot output, bolean \code{TRUE} or \code{FALSE}
 #' @return returns a radial spectrum for a moving window across a
 #' raster layer
 #' @keywords foto, radial spectrum
@@ -42,8 +45,9 @@ foto <- function(
   x,
   window_size = 61,
   method = "zones",
-  plot = FALSE,
-  norm_spec = TRUE
+  norm_spec = FALSE,
+  pca = TRUE,
+  plot = FALSE
   ){
   
   # get the current enviroment
@@ -154,51 +158,56 @@ foto <- function(
   # set all infinite values to NA
   output[is.infinite(output)] <- NA
   
-  # Normalize matrix column wise (ignoring NA values)
-  noutput <- suppressWarnings(base::scale(output))
-  
-  # set NA/Inf values to 0 as the pca analys doesn't take NA values
-  noutput[is.infinite(noutput) | is.na(noutput)] <- 0
-  
-  # find the location of all zero rows (empty)
-  zero_location <- apply(noutput, 1, function(x)all(x == 0))
-  
-  # the principal component analysis
-  pcfit <- stats::princomp(noutput)
-  
-  # set empty (zeros) rows to NA
-  pcfit$scores[which(zero_location),] <- NA
-  
-  # create reclass files based upon PCA scores
-  # only the first 3 PC will be considered
-  for (i in 1:3){
-    assign(paste('rcl.',i,sep=''),
-           cbind(seq(1, nrow(pcfit$scores), 1),
-                 normalize(pcfit$scores[,i])),
-           envir = env)
-  }  
-  
-  # reclassify using the above reclass files
-  PC <- lapply(1:3, function(i){
-    return(raster::reclassify(zones,
-                              get(paste('rcl.',i,sep=''))))
-  })
-  
-  # create a raster brick
-  img_RGB <- do.call("brick", PC)
-  
-  # plot the classification using an RGB representation of the first 3 PC
-  if (plot){
-    raster::plot(img,
-                 col = grDevices::gray(0:100/100),
-                 legend = FALSE,
-                 box = FALSE,
-                 axes = FALSE)
-    raster::plotRGB(img_RGB,
-                    stretch = 'hist',
-                    add = TRUE, 
-                    alpha = 128,
-                    bgalpha = 0)
+  if(pca){
+    
+    # Normalize matrix column wise (ignoring NA values)
+    noutput <- suppressWarnings(base::scale(output))
+    
+    # set NA/Inf values to 0 as the pca analys doesn't take NA values
+    noutput[is.infinite(noutput) | is.na(noutput)] <- 0
+    
+    # find the location of all zero rows (empty)
+    zero_location <- apply(noutput, 1, function(x)all(x == 0))
+    
+    # the principal component analysis
+    pcfit <- stats::princomp(noutput)
+    
+    # set empty (zeros) rows to NA
+    pcfit$scores[which(zero_location),] <- NA
+    
+    # create reclass files based upon PCA scores
+    # only the first 3 PC will be considered
+    for (i in 1:3){
+      assign(paste('rcl.',i,sep=''),
+             cbind(seq(1, nrow(pcfit$scores), 1),
+                   normalize(pcfit$scores[,i])),
+             envir = env)
+    }  
+    
+    # reclassify using the above reclass files
+    PC <- lapply(1:3, function(i){
+      return(raster::reclassify(zones,
+                                get(paste('rcl.',i,sep=''))))
+    })
+    
+    # create a raster brick
+    img_RGB <- do.call("brick", PC)
+    
+    # plot the classification using an RGB representation of the first 3 PC
+    if (plot){
+      raster::plot(img,
+                   col = grDevices::gray(0:100/100),
+                   legend = FALSE,
+                   box = FALSE,
+                   axes = FALSE)
+      raster::plotRGB(img_RGB,
+                      stretch = 'hist',
+                      add = TRUE, 
+                      alpha = 128,
+                      bgalpha = 0)
+    }
+  } else {
+    img_RGB <- NULL
   }
   
   # return data

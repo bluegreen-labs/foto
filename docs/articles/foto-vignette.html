@@ -83,7 +83,7 @@
       <h1>foto</h1>
                         <h4 class="author">Koen Hufkens</h4>
             
-            <h4 class="date">2019-05-16</h4>
+            <h4 class="date">2019-06-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/khufkens/foto/blob/master/vignettes/foto-vignette.Rmd"><code>vignettes/foto-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>foto-vignette.Rmd</code></div>
@@ -105,16 +105,16 @@
 <h3 class="hasAnchor">
 <a href="#zones" class="anchor"></a>Zones</h3>
 <p>The zoned approach on the <code><a href="../reference/foto.html">foto()</a></code> routine returns a nested list with the source data (aggregation zones, radial spectra) and a final colour image consisting of the three major principal components for every pixel. An example analysis is run below.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(foto)</a>
-<a class="sourceLine" id="cb1-2" title="2"></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co"># load demo data</span></a>
-<a class="sourceLine" id="cb1-4" title="4">r &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/raster/topics/raster">raster</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sprintf">sprintf</a></span>(<span class="st">"%s/extdata/yangambi.png"</span>, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/find.package">path.package</a></span>(<span class="st">"foto"</span>)))</a>
-<a class="sourceLine" id="cb1-5" title="5"></a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="co"># classify pixels using zones (discrete steps)</span></a>
-<a class="sourceLine" id="cb1-7" title="7">output &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto.html">foto</a></span>(r,</a>
-<a class="sourceLine" id="cb1-8" title="8">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-9" title="9">     <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
-<a class="sourceLine" id="cb1-10" title="10">     <span class="dt">method =</span> <span class="st">"zones"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(foto)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># load demo data</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">r &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/raster/topics/raster">raster</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sprintf">sprintf</a></span>(<span class="st">"%s/extdata/yangambi.png"</span>, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/find.package">path.package</a></span>(<span class="st">"foto"</span>)))</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co"># classify pixels using zones (discrete steps)</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">output &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto.html">foto</a></span>(r,</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">     <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">     <span class="dt">method =</span> <span class="st">"zones"</span>)</a></code></pre></div>
 <p><img src="foto-vignette_files/figure-html/figure_1-1.png" width="672"></p>
 <p>In the resulting image pixels with a similar colour have a similar texture. The analysis is run a historical image of plantations near Yangambi, DR Congo. The regular pattern of planted trees is picked up readily by the algorithm.</p>
 </div>
@@ -122,16 +122,16 @@
 <h3 class="hasAnchor">
 <a href="#moving-window" class="anchor"></a>Moving window</h3>
 <p>Below you find an example analyis for a subsection of the processed image above. The output format of the moving window analysis is consistent with that of the zoned approach.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># crop the image for speed</span></a>
-<a class="sourceLine" id="cb2-2" title="2">r_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">crop</span>(r, <span class="kw">extent</span>(<span class="dv">1</span>,<span class="dv">100</span>,<span class="dv">1</span>,<span class="dv">100</span>))</a>
-<a class="sourceLine" id="cb2-3" title="3"></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="co"># crop the image</span></a>
-<a class="sourceLine" id="cb2-5" title="5">output_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto.html">foto</a></span>(r_<span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb2-6" title="6">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb2-7" title="7">     <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
-<a class="sourceLine" id="cb2-8" title="8">     <span class="dt">method =</span> <span class="st">"mw"</span>)</a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="co">#&gt; A moving window approach is computationally intensive.</span></a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; This might take a while.</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># crop the image for speed</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">r_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">crop</span>(r, <span class="kw">extent</span>(<span class="dv">1</span>,<span class="dv">100</span>,<span class="dv">1</span>,<span class="dv">100</span>))</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co"># crop the image</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">output_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto.html">foto</a></span>(r_<span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">     <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">     <span class="dt">method =</span> <span class="st">"mw"</span>)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; A moving window approach is computationally intensive.</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; This might take a while.</span></a></code></pre></div>
 <p><img src="foto-vignette_files/figure-html/figure_2-1.png" width="672"></p>
 </div>
 </div>
@@ -139,36 +139,36 @@
 <h2 class="hasAnchor">
 <a href="#global-normalization" class="anchor"></a>Global normalization</h2>
 <p>Global normalization over a batch of images is supported through the <code><a href="../reference/foto_batch.html">foto_batch()</a></code> function. This centers the radial spectra across all images in a particular directory, so either spatial or temporal comparisons can be made between different images. An example is given below for a batch of two images. The top shows the original images, the middle the normalized ones (look at the correspondence on the edges), the bottom are the data for the individually processed images. The latter still look alike, but are not exactly comparable in a one-to-one analysis.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># load demo data path</span></a>
-<a class="sourceLine" id="cb3-2" title="2">path &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>,<span class="dt">package=</span><span class="st">"foto"</span>)</a>
-<a class="sourceLine" id="cb3-3" title="3"></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="co"># classify pixels using zones (discrete steps)</span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="co"># across images</span></a>
-<a class="sourceLine" id="cb3-6" title="6">output_batch &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto_batch.html">foto_batch</a></span>(<span class="dt">path =</span> path,</a>
-<a class="sourceLine" id="cb3-7" title="7">                <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
-<a class="sourceLine" id="cb3-8" title="8">                <span class="dt">method =</span> <span class="st">"zones"</span>)</a>
-<a class="sourceLine" id="cb3-9" title="9"></a>
-<a class="sourceLine" id="cb3-10" title="10"><span class="co"># indiviual images would look different when processed one by one</span></a>
-<a class="sourceLine" id="cb3-11" title="11">r_<span class="dv">2</span> &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/raster/topics/raster">raster</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sprintf">sprintf</a></span>(<span class="st">"%s/extdata/yangambi_2.png"</span>,</a>
-<a class="sourceLine" id="cb3-12" title="12">                              <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/find.package">path.package</a></span>(<span class="st">"foto"</span>)))</a>
-<a class="sourceLine" id="cb3-13" title="13"></a>
-<a class="sourceLine" id="cb3-14" title="14"><span class="co"># classify pixels using zones (discrete steps)</span></a>
-<a class="sourceLine" id="cb3-15" title="15">output_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto.html">foto</a></span>(r_<span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb3-16" title="16">     <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
-<a class="sourceLine" id="cb3-17" title="17">     <span class="dt">method =</span> <span class="st">"zones"</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/par">par</a></span>(<span class="dt">mfrow =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(r_<span class="dv">2</span>, <span class="dt">col =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/gray.colors">grey.colors</a></span>(<span class="dv">100</span>), <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">legend =</span> <span class="ot">FALSE</span>, <span class="dt">box =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(r, <span class="dt">col =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/gray.colors">grey.colors</a></span>(<span class="dv">100</span>), <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">legend =</span> <span class="ot">FALSE</span>, <span class="dt">box =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># load demo data path</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">path &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>,<span class="dt">package=</span><span class="st">"foto"</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># classify pixels using zones (discrete steps)</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># across images</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">output_batch &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto_batch.html">foto_batch</a></span>(<span class="dt">path =</span> path,</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">                <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">                <span class="dt">method =</span> <span class="st">"zones"</span>)</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co"># indiviual images would look different when processed one by one</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">r_<span class="dv">2</span> &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/raster/topics/raster">raster</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sprintf">sprintf</a></span>(<span class="st">"%s/extdata/yangambi_2.png"</span>,</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">                              <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/find.package">path.package</a></span>(<span class="st">"foto"</span>)))</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co"># classify pixels using zones (discrete steps)</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">output_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw"><a href="../reference/foto.html">foto</a></span>(r_<span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">     <span class="dt">window_size =</span> <span class="dv">51</span>,</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">     <span class="dt">method =</span> <span class="st">"zones"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/par">par</a></span>(<span class="dt">mfrow =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(r_<span class="dv">2</span>, <span class="dt">col =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/gray.colors">grey.colors</a></span>(<span class="dv">100</span>), <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">legend =</span> <span class="ot">FALSE</span>, <span class="dt">box =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(r, <span class="dt">col =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/gray.colors">grey.colors</a></span>(<span class="dv">100</span>), <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">legend =</span> <span class="ot">FALSE</span>, <span class="dt">box =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="foto-vignette_files/figure-html/figure_3-1.png" width="672"></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/par">par</a></span>(<span class="dt">mfrow =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="kw">plotRGB</span>(output_batch[[<span class="dv">1</span>]], <span class="dt">stretch =</span> <span class="st">"hist"</span>)</a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="kw">plotRGB</span>(output_batch[[<span class="dv">2</span>]], <span class="dt">stretch =</span> <span class="st">"hist"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/par">par</a></span>(<span class="dt">mfrow =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">plotRGB</span>(output_batch[[<span class="dv">1</span>]], <span class="dt">stretch =</span> <span class="st">"hist"</span>)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">plotRGB</span>(output_batch[[<span class="dv">2</span>]], <span class="dt">stretch =</span> <span class="st">"hist"</span>)</a></code></pre></div>
 <p><img src="foto-vignette_files/figure-html/figure_3-2.png" width="672"></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"></a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/par">par</a></span>(<span class="dt">mfrow =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="kw">plotRGB</span>(output_<span class="dv">2</span><span class="op">$</span>rgb, <span class="dt">stretch =</span> <span class="st">"hist"</span>)</a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="kw">plotRGB</span>(output<span class="op">$</span>rgb, <span class="dt">stretch =</span> <span class="st">"hist"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/par">par</a></span>(<span class="dt">mfrow =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">plotRGB</span>(output_<span class="dv">2</span><span class="op">$</span>rgb, <span class="dt">stretch =</span> <span class="st">"hist"</span>)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">plotRGB</span>(output<span class="op">$</span>rgb, <span class="dt">stretch =</span> <span class="st">"hist"</span>)</a></code></pre></div>
 <p><img src="foto-vignette_files/figure-html/figure_3-3.png" width="672"></p>
 </div>
 <div id="partitioned-normalization" class="section level2">

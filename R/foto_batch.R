@@ -9,6 +9,7 @@
 #' @param window_size a moving window size in pixels (default = 61 pixels)
 #' @param method zones (for discrete zones) or mw for a moving window
 #' approach
+#' @param cores number of cores to use in parallel calculations
 #' @return returns a radial spectrum for a moving window across a
 #' raster layer
 #' @keywords foto, radial spectrum, batch normalization
@@ -29,7 +30,8 @@
 foto_batch <- function(
   path,
   window_size = 61,
-  method = "zones"
+  method = "zones",
+  cores = 1
 ){
   
   # get the current enviroment
@@ -50,15 +52,17 @@ foto_batch <- function(
                       full.names = TRUE)
   
   # run the normal routine
-  output <- lapply(files, function(file){
+  output <- parallel::mclapply(files, function(file){
     foto(
       file,
       window_size = window_size,
       method = method,
       plot = FALSE,
-      norm_spec = FALSE
+      norm_spec = FALSE,
+      pca = FALSE
     )
-  })
+  },
+  mc.cores = cores)
   
   # combine r-spectra
   i <- 1

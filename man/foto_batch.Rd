@@ -4,7 +4,7 @@
 \alias{foto_batch}
 \title{Calculates FOTO classification of texture for an image batch}
 \usage{
-foto_batch(path, window_size = 61, method = "zones")
+foto_batch(path, window_size = 61, method = "zones", cores = 1)
 }
 \arguments{
 \item{path}{directory containing (only) image files to process}
@@ -13,6 +13,8 @@ foto_batch(path, window_size = 61, method = "zones")
 
 \item{method}{zones (for discrete zones) or mw for a moving window
 approach}
+
+\item{cores}{number of cores to use in parallel calculations}
 }
 \value{
 returns a radial spectrum for a moving window across a

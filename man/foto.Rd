@@ -4,8 +4,8 @@
 \alias{foto}
 \title{Calculates FOTO classification of texture}
 \usage{
-foto(x, window_size = 61, method = "zones", plot = FALSE,
-  norm_spec = TRUE)
+foto(x, window_size = 61, method = "zones", norm_spec = FALSE,
+  pca = TRUE, plot = FALSE)
 }
 \arguments{
 \item{x}{an image file, raster layer, stack or brick 
@@ -17,10 +17,14 @@ a single layer raster}
 \item{method}{zones (for discrete zones) or mw for a moving window
 approach}
 
-\item{plot}{plot output, bolean \code{TRUE} or \code{FALSE}}
-
 \item{norm_spec}{normalize radial spectrum,
 bolean \code{TRUE} or \code{FALSE}}
+
+\item{pca}{execute PCA, \code{TRUE} or \code{FALSE}. If \code{FALSE} only
+the radial spectra are returned for additional manipulation. Plotting is
+ignored if set to \code{FALSE}.}
+
+\item{plot}{plot output, bolean \code{TRUE} or \code{FALSE}}
 }
 \value{
 returns a radial spectrum for a moving window across a

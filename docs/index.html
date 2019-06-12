@@ -90,10 +90,10 @@
     
     
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 <div id="foto" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#foto" class="anchor"></a>FOTO</h1></div>
+
 <p>The FOTO (Fourier Transform Textural Ordination) method uses a principal component analysis (PCA) on radially averaged 2D Fourier spectra to characterize (grayscale) image texture. The FOTO method was described by <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2664.2005.01097.x/abstract;jsessionid=359DD0662C272A59AF94FAEF3F213156.f02t04">Couteron et al. 2005</a> to quantify canopy stucture in relation to biomass and biodiversity. More recently, the code base of this package was used in a similar study by <a href="http://spie.org/Publications/Journal/10.1117/1.JRS.12.036006?SSO=1">Solorzano et al. 2018</a>. Although the techiques as presented in these papers is applied on a canopy level, the principle works on images of all types.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -102,20 +102,20 @@
 <h3 class="hasAnchor">
 <a href="#stable-release" class="anchor"></a>stable release</h3>
 <p>To install the current stable release use a CRAN repository:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"foto"</span>)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">"foto"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"foto"</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">"foto"</span>)</a></code></pre></div>
 </div>
 <div id="development-release" class="section level3">
 <h3 class="hasAnchor">
 <a href="#development-release" class="anchor"></a>development release</h3>
 <p>To install the development releases of the package run the following commands:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(devtools)){<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)}</a>
-<a class="sourceLine" id="cb2-2" title="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"khufkens/foto"</span>)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">"foto"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(devtools)){<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)}</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"khufkens/foto"</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">"foto"</span>)</a></code></pre></div>
 <p>Vignettes are not rendered by default, if you want to include additional documentation please use:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(devtools)){<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)}</a>
-<a class="sourceLine" id="cb3-2" title="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"khufkens/foto"</span>, <span class="dt">build_vignettes =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">"foto"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(devtools)){<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)}</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"khufkens/foto"</span>, <span class="dt">build_vignettes =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">"foto"</span>)</a></code></pre></div>
 </div>
 </div>
 <div id="use" class="section level2">
@@ -156,39 +156,39 @@
 <a href="#zones" class="anchor"></a>Zones</h3>
 <p>The original implementation used discrete zones (blocks of x pixels wide, window_size parameter) to classify an image. This original implementation is the default, and the least computationally intensive, as it effectively reduces to resolution of the orignal data. In short, data is aggregated at the size of the specified window.</p>
 <p>An example analysis is run below. In the resulting image pixels with a similar colour have a similar texture. The analysis is run on a historical image of plantations near Yangambi, DR Congo, as recovered in the <a href="http://cobecore.org/">COBECORE project</a>. The regular pattern of planted trees is picked up readily by the algorithm.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># load the library</span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(foto)</a>
-<a class="sourceLine" id="cb4-3" title="3"></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="co"># load demo data</span></a>
-<a class="sourceLine" id="cb4-5" title="5">r &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/raster/topics/raster">raster</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"yangambi.png"</span>,</a>
-<a class="sourceLine" id="cb4-6" title="6">                          <span class="dt">package =</span> <span class="st">"foto"</span>,</a>
-<a class="sourceLine" id="cb4-7" title="7">                          <span class="dt">mustWork =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb4-8" title="8"></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="co"># classify pixels using zones (discrete steps)</span></a>
-<a class="sourceLine" id="cb4-10" title="10">output &lt;-<span class="st"> </span><span class="kw"><a href="reference/foto.html">foto</a></span>(r,</a>
-<a class="sourceLine" id="cb4-11" title="11">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb4-12" title="12">     <span class="dt">window_size =</span> <span class="dv">25</span>,</a>
-<a class="sourceLine" id="cb4-13" title="13">     <span class="dt">method =</span> <span class="st">"zones"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># load the library</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(foto)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># load demo data</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">r &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/raster/topics/raster">raster</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"yangambi.png"</span>,</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">                          <span class="dt">package =</span> <span class="st">"foto"</span>,</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">                          <span class="dt">mustWork =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co"># classify pixels using zones (discrete steps)</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">output &lt;-<span class="st"> </span><span class="kw"><a href="reference/foto.html">foto</a></span>(r,</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">     <span class="dt">window_size =</span> <span class="dv">25</span>,</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">     <span class="dt">method =</span> <span class="st">"zones"</span>)</a></code></pre></div>
 <p><img src="figure_1-1.png" width="672"></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="co"># print data structure</span></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(output))</a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="co">#&gt; [1] "zones"          "radial_spectra" "rgb"</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co"># print data structure</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(output))</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [1] "zones"          "radial_spectra" "rgb"</span></a></code></pre></div>
 </div>
 <div id="moving-window" class="section level3">
 <h3 class="hasAnchor">
 <a href="#moving-window" class="anchor"></a>Moving window</h3>
 <p>To maintain the resolution of the original image a moving window approach can be used (method = “mw”). This approach overlays a window of size x (window_size parameter) on every pixel in the image and applies the FOTO methodology. This obviously represents a considerable computational burden and should be used with caution. An example is given below for a smaller subsection of the processed image above. The output format of the moving window analysis is consistent with that of the zoned approach.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># crop the image for speed</span></a>
-<a class="sourceLine" id="cb6-2" title="2">r &lt;-<span class="st"> </span><span class="kw">crop</span>(r, <span class="kw">extent</span>(<span class="dv">1</span>,<span class="dv">100</span>,<span class="dv">1</span>,<span class="dv">100</span>))</a>
-<a class="sourceLine" id="cb6-3" title="3"></a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="co"># crop the image</span></a>
-<a class="sourceLine" id="cb6-5" title="5">output &lt;-<span class="st"> </span><span class="kw"><a href="reference/foto.html">foto</a></span>(r,</a>
-<a class="sourceLine" id="cb6-6" title="6">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb6-7" title="7">     <span class="dt">window_size =</span> <span class="dv">25</span>,</a>
-<a class="sourceLine" id="cb6-8" title="8">     <span class="dt">method =</span> <span class="st">"mw"</span>)</a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt; A moving window approach is computationally intensive.</span></a>
-<a class="sourceLine" id="cb6-10" title="10"><span class="co">#&gt; This might take a while.</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># crop the image for speed</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">r &lt;-<span class="st"> </span><span class="kw">crop</span>(r, <span class="kw">extent</span>(<span class="dv">1</span>,<span class="dv">100</span>,<span class="dv">1</span>,<span class="dv">100</span>))</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># crop the image</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">output &lt;-<span class="st"> </span><span class="kw"><a href="reference/foto.html">foto</a></span>(r,</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">     <span class="dt">plot =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">     <span class="dt">window_size =</span> <span class="dv">25</span>,</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">     <span class="dt">method =</span> <span class="st">"mw"</span>)</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; A moving window approach is computationally intensive.</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; This might take a while.</span></a></code></pre></div>
 <p><img src="figure_2-1.png" width="672"></p>
 </div>
 </div>
@@ -203,7 +203,7 @@
 <ul>
 <li><p>Couteron P, Pelissier R, Nicolini E a., Paget D (2005) Predicting tropical forest stand structure parameters from Fourier transform of very high-resolution remotely sensed canopy images. Journal of Applied Ecology, 42, 1121–1128.</p></li>
 <li><p>Barbier N, Couteron P, Proisy C, Malhi Y, Gastellu-Etchegorry J-P (2010) The variation of apparent crown size and canopy heterogeneity across lowland Amazonian forests. Global Ecology and Biogeography, 19, 72–84.</p></li>
-<li><p>Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018) Contrasting the potential of Fourier transformed ordination and gray level co-occurrence matrix textures to model a tropical swamp forest ’ s structural and diversity attributes. Journal of Applied Remote Sensing, 12, 036006.</p></li>
+<li><p>Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018) Contrasting the potential of Fourier transformed ordination and gray level co-occurrence matrix textures to model a tropical swamp forest ’ s structural and diversity attributes. Journal of Applied Remote Sensing, 12, 036006.</p></li>
 </ul>
 </div>
 <div id="acknowledgements" class="section level2">

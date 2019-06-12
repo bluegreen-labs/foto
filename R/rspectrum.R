@@ -54,10 +54,9 @@ rspectrum <- function(
     if (n){
       
       # Normalize by dividing with the image standard deviation
-      # publictions are inconsisten on the use of normalization
+      # publictions are inconsistent on the use of normalization
       # need to clarify this better.
-      rspec <- rspec/stats::sd(im,na.rm=TRUE)
-    
+      rspec <- rspec/stats::sd(im, na.rm = TRUE)
     }    
     
     # set first two values to 0 these are inherent to the
