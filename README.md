@@ -10,6 +10,7 @@ Status](https://travis-ci.org/khufkens/foto.svg)](https://travis-ci.org/khufkens
 [![codecov](https://codecov.io/gh/khufkens/foto/branch/master/graph/badge.svg)](https://codecov.io/gh/khufkens/foto)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/foto)](https://cran.r-project.org/package=foto)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/foto)](https://cran.r-project.org/package=foto)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3337933.svg)](https://doi.org/10.5281/zenodo.3337933)
 
 The FOTO (Fourier Transform Textural Ordination) method uses a principal
 component analysis (PCA) on radially averaged 2D Fourier spectra to
@@ -23,8 +24,8 @@ al. 2018](http://spie.org/Publications/Journal/10.1117/1.JRS.12.036006?SSO=1).
 Although the techiques as presented in these papers is applied on a
 canopy level, the principle works on images of all types.
 
-Please cite the software in publication as: Koen Hufkens (2019). khufkens/foto: an R implementation of the "fourier transform textural ordination" method (Version v1.0.2). Zenodo.
-
+Please cite the software in publication as: Koen Hufkens (2019). khufkens/foto: an R implementation of the "fourier transform textural ordination" method (Version v1.0.2). Zenodo. https://doi.org/10.5281/zenodo.3337885
+ 
 ## Installation
 
 ### stable release
