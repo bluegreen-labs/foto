@@ -3,14 +3,12 @@
 
 # FOTO
 
----
-
+[![R-CMD-check](https://github.com/khufkens/foto/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/khufkens/foto/actions/workflows/R-CMD-check.yaml)
 [![Build
 Status](https://travis-ci.org/khufkens/foto.svg)](https://travis-ci.org/khufkens/foto)
-[![codecov](https://codecov.io/gh/khufkens/foto/branch/master/graph/badge.svg)](https://codecov.io/gh/khufkens/foto)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/foto)](https://cran.r-project.org/package=foto)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/foto)](https://cran.r-project.org/package=foto)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3337933.svg)](https://doi.org/10.5281/zenodo.3337933)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3337885.svg)](https://doi.org/10.5281/zenodo.3337885)
 
 The FOTO (Fourier Transform Textural Ordination) method uses a principal
 component analysis (PCA) on radially averaged 2D Fourier spectra to
@@ -24,8 +22,10 @@ al. 2018](http://spie.org/Publications/Journal/10.1117/1.JRS.12.036006?SSO=1).
 Although the techiques as presented in these papers is applied on a
 canopy level, the principle works on images of all types.
 
-Please cite the software in publication as: Koen Hufkens (2019). khufkens/foto: an R implementation of the "fourier transform textural ordination" method (Version v1.0.2). Zenodo. https://doi.org/10.5281/zenodo.3337885
- 
+Please cite the software in publication as: Koen Hufkens (2019). foto:
+an R implementation of the “fourier transform textural ordination”
+method. <https://doi.org/10.5281/zenodo.3337885>
+
 ## Installation
 
 ### stable release
@@ -66,13 +66,13 @@ analysis) and a final colour image consisting of the three major
 principal components for every pixel.
 
 <details>
-
-<summary>detailed parameter description (click to expand)</summary>
-
+<summary>
+detailed parameter description (click to expand)
+</summary>
 <p>
 
 | Parameter    | Description                                  |
-| ------------ | -------------------------------------------- |
+|--------------|----------------------------------------------|
 | x            | a raster layer (stack or brick)              |
 | window\_size | a window size in pixels                      |
 | plot         | plot output (TRUE / FALSE)                   |
@@ -80,7 +80,6 @@ principal components for every pixel.
 | method       | “zones” or “mw” (i.e. moving window)         |
 
 </p>
-
 </details>
 
 ### Zones
@@ -116,7 +115,6 @@ output <- foto(r,
 ![](docs/figure_1-1.png)<!-- -->
 
 ``` r
-
 # print data structure
 print(names(output))
 #> [1] "zones"          "radial_spectra" "rgb"
@@ -150,24 +148,24 @@ output <- foto(r,
 
 ## Partitioned normalization
 
-Partitioned normalization as described in [Barbier et
+Partiotioned normalization as described in [Barbier et
 al. 2010](http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x) is not
 provided but easily accomplished once all images are processed. I refer
 to this paper for the appropriate routines.
 
 ## References
 
-  - Couteron P, Pelissier R, Nicolini E a., Paget D (2005) Predicting
+-   Couteron P, Pelissier R, Nicolini E a., Paget D (2005) Predicting
     tropical forest stand structure parameters from Fourier transform of
     very high-resolution remotely sensed canopy images. Journal of
     Applied Ecology, 42, 1121–1128.
 
-  - Barbier N, Couteron P, Proisy C, Malhi Y, Gastellu-Etchegorry J-P
-    (2010) The variation of apparent crown size and canopy heterogeneity
-    across lowland Amazonian forests. Global Ecology and Biogeography,
-    19, 72–84.
+-   Barbier N, Couteron P, Proisy C, Malhi Y, Gastellu-Etchegorry
+    J-P (2010) The variation of apparent crown size and canopy
+    heterogeneity across lowland Amazonian forests. Global Ecology and
+    Biogeography, 19, 72–84.
 
-  - Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018)
+-   Solórzano JV, Gallardo-cruz JA, González EJ et al. (2018)
     Contrasting the potential of Fourier transformed ordination and gray
     level co-occurrence matrix textures to model a tropical swamp forest
     ’ s structural and diversity attributes. Journal of Applied Remote
