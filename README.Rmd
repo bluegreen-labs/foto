@@ -16,7 +16,7 @@ library(raster)
 
 # FOTO
 [![R-CMD-check](https://github.com/khufkens/foto/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/khufkens/foto/actions/workflows/R-CMD-check.yaml)
-[![Build Status](https://travis-ci.org/khufkens/foto.svg)](https://travis-ci.org/khufkens/foto)
+[![codecov](https://codecov.io/gh/khufkens/foto/branch/master/graph/badge.svg)](https://codecov.io/gh/khufkens/foto)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/foto)](https://cran.r-project.org/package=foto)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/foto)](https://cran.r-project.org/package=foto)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3337885.svg)](https://doi.org/10.5281/zenodo.3337885)
