@@ -1,3 +1,7 @@
+# foto 1.0.3
+
+* adding a high pass argument
+
 # foto 1.0.2
 
 * parallelization of global normalization using `mclapply()`
