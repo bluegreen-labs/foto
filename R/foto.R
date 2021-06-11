@@ -15,6 +15,8 @@
 #' ignored if set to \code{FALSE}.
 #' @param norm_spec normalize radial spectrum,
 #' bolean \code{TRUE} or \code{FALSE}
+#' @param high_pass apply high pass filter to radial spectra,
+#' bolean \code{TRUE} or \code{FALSE}
 #' @param plot plot output, bolean \code{TRUE} or \code{FALSE}
 #' @return returns a radial spectrum for a moving window across a
 #' raster layer
@@ -40,12 +42,12 @@
 #' print(names(output))
 #' }
 
-
 foto <- function(
   x,
   window_size = 61,
   method = "zones",
   norm_spec = FALSE,
+  high_pass = TRUE,
   pca = TRUE,
   plot = FALSE
   ){
@@ -125,6 +127,7 @@ foto <- function(
           x = x,
           w = window_size,
           n = norm_spec,
+          h = high_pass,
           env = env
         )
       },

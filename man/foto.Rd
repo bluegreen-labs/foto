@@ -4,8 +4,15 @@
 \alias{foto}
 \title{Calculates FOTO classification of texture}
 \usage{
-foto(x, window_size = 61, method = "zones", norm_spec = FALSE,
-  pca = TRUE, plot = FALSE)
+foto(
+  x,
+  window_size = 61,
+  method = "zones",
+  norm_spec = FALSE,
+  high_pass = TRUE,
+  pca = TRUE,
+  plot = FALSE
+)
 }
 \arguments{
 \item{x}{an image file, raster layer, stack or brick 
@@ -18,6 +25,9 @@ a single layer raster}
 approach}
 
 \item{norm_spec}{normalize radial spectrum,
+bolean \code{TRUE} or \code{FALSE}}
+
+\item{high_pass}{apply high pass filter to radial spectra,
 bolean \code{TRUE} or \code{FALSE}}
 
 \item{pca}{execute PCA, \code{TRUE} or \code{FALSE}. If \code{FALSE} only

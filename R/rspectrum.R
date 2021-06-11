@@ -5,6 +5,9 @@
 #' @param x a square matrix
 #' @param w a moving window size
 #' @param n normalize, bolean \code{TRUE} or \code{FALSE}
+#' @param h high pass filter on the two first spectra values
+#'  set to 0, limits the influence of low frequency components 
+#'  bolean \code{TRUE} or \code{FALSE}
 #' @param env local environment to evaluate
 #' @param ... additional parameters to forward
 #' @return Returns a radial spectrum values for the image used
@@ -15,6 +18,7 @@ rspectrum <- function(
   x,
   w,
   n = TRUE,
+  h = TRUE,
   env,
   ...
   ){
@@ -61,7 +65,7 @@ rspectrum <- function(
     
     # set first two values to 0 these are inherent to the
     # structure of the image
-    rspec[1:2] <- 0
+    #rspec[1:2] <- 0
     
     # only use the first 29 useful harmonics of the r-spectrum
     # in accordance to ploton et al. 2012

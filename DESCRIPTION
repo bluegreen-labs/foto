@@ -25,7 +25,7 @@ Authors@R: c(
 		  person("Jonathan V.", "Solorzano", role = c("aut")))
 LazyData: true
 ByteCompile: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Suggests:
     rgdal,
     knitr,
