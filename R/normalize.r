@@ -4,7 +4,6 @@
 #'
 #' @param x a matrix or vector
 #' @return returns a normalized matrix or vector
-#' @keywords foto, radial spectrum, normalization
 
 # standard normalize between 0 - 1
 normalize <- function(x){

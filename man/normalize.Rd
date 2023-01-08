@@ -15,7 +15,3 @@ returns a normalized matrix or vector
 \description{
 Normalize values between 0 and 1, internal function only.
 }
-\keyword{foto,}
-\keyword{normalization}
-\keyword{radial}
-\keyword{spectrum,}

@@ -27,22 +27,19 @@ to compare the resulting PCA scores across images and infer trends
 over different remote sensing tiles or across time.
 }
 \examples{
-
 \dontrun{
 # load demo data path
-path <- system.file("extdata",package="foto")
+path <- system.file("extdata", package = "foto")
 
 # classify pixels using zones (discrete steps)
-output <- foto_batch(path = path,
-               window_size = 25,
-               method = "zones")
+output <- foto_batch(
+  path = path,
+  window_size = 25,
+  method = "zones"
+)
 }
+
 }
 \seealso{
 \code{\link[foto]{rspectrum}} \code{\link[foto]{foto}}
 }
-\keyword{batch}
-\keyword{foto,}
-\keyword{normalization}
-\keyword{radial}
-\keyword{spectrum,}

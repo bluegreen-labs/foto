@@ -15,9 +15,8 @@ foto(
 )
 }
 \arguments{
-\item{x}{an image file, raster layer, stack or brick 
-for multilayered images (RGB or otherwise) data are averaged to 
-a single layer raster}
+\item{x}{an image file, or single or multi-layer SpatRaster
+(RGB or otherwise), multi-layer data are averaged to a single layer}
 
 \item{window_size}{a moving window size in pixels (default = 61 pixels)}
 
@@ -44,26 +43,26 @@ raster layer
 Note that the input matrix should be square or results will be discarded
 }
 \examples{
-
 \dontrun{
 # load demo data
-r <- raster::raster(system.file("extdata",
- "yangambi.png", package = "foto",
-     mustWork = TRUE))
+r <- terra::rast(system.file("extdata",
+  "yangambi.png",
+  package = "foto",
+  mustWork = TRUE
+))
 
 # classify pixels using zones (discrete steps)
 output <- foto(r,
-               plot = FALSE,
-               window_size = 25,
-               method = "zones")
+  plot = FALSE,
+  window_size = 25,
+  method = "zones"
+)
 
 # print data structure
 print(names(output))
 }
+
 }
 \seealso{
 \code{\link[foto]{rspectrum}}
 }
-\keyword{foto,}
-\keyword{radial}
-\keyword{spectrum}

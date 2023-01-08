@@ -17,8 +17,7 @@ knitr::opts_chunk$set(
 
 # load the library
 library(foto)
-library(raster)
-
+library(terra)
 ```
 
 # Introduction
@@ -37,9 +36,10 @@ The zoned approach on the `foto()` routine returns a nested list with the source
 
 ```{r figure_1, message = FALSE, warning = FALSE, fig.width=7, fig.height=7}
 library(foto)
+library(terra)
 
 # load demo data
-r <- raster::raster(sprintf("%s/extdata/yangambi.png", path.package("foto")))
+r <- terra::rast(sprintf("%s/extdata/yangambi.png", path.package("foto")))
 
 # classify pixels using zones (discrete steps)
 output <- foto(r,
@@ -56,7 +56,7 @@ Below you find an example analyis for a subsection of the processed image above.
 
 ```{r figure_2, fig.width=7, fig.height=7}
 # crop the image for speed
-r_1 <- crop(r, extent(1,100,1,100))
+r_1 <- terra::crop(r, terra::ext(1,100,1,100))
 
 # crop the image
 output_1 <- foto(r_1,
@@ -80,7 +80,7 @@ output_batch <- foto_batch(path = path,
                 method = "zones")
 
 # indiviual images would look different when processed one by one
-r_2 <- raster::raster(sprintf("%s/extdata/yangambi_2.png",
+r_2 <- terra::rast(sprintf("%s/extdata/yangambi_2.png",
                               path.package("foto")))
 
 # classify pixels using zones (discrete steps)

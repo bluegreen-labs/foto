@@ -2,4 +2,3 @@
 
 export(foto)
 export(foto_batch)
-importFrom(raster,brick)

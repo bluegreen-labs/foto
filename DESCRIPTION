@@ -1,6 +1,15 @@
 Package: foto
-Version: 1.0.3
+Version: 1.0.4
 Title: Fourier Transform Textural Ordination
+Authors@R: c(person(
+               family = "Hufkens",
+               given = "Koen",
+               email = "koen.hufkens@gmail.com",
+               role = c("aut", "cre"),
+               comment = c(ORCID = "0000-0002-5070-8109")),
+              person("Jonathan V.", "Solorzano", role = c("ctb")),
+              person(given = "BlueGreen Labs",
+                role = c("cph", "fnd")))
 Description: The Fourier Transform Textural Ordination method 
   uses a principal component analysis on radially averaged
   two dimensional Fourier spectra to characterize image texture. The method
@@ -8,28 +17,22 @@ Description: The Fourier Transform Textural Ordination method
   <doi:10.1111/j.1365-2664.2005.01097.x> and expanded upon by
   Solorzano et al. (2018) <doi:10.1117/1.JRS.12.036006>
   using a moving window approach.
-URL: https://github.com/khufkens/foto
-BugReports: https://github.com/khufkens/foto/issues
+URL: https://github.com/bluegreen-labs/foto
+BugReports: https://github.com/bluegreen-labs/foto/issues
 Depends:
     R (>= 3.4)
 Imports:
-    raster,
+    terra,
     stats,
     parallel,
     grDevices
-License: AGPL-3
-Authors@R: c(
-      person("Koen", "Hufkens", email = "koen.hufkens@gmail.com",
-		  comment = c(ORCID = "0000-0002-5070-8109"),
-		  role = c("aut", "cre")),
-		  person("Jonathan V.", "Solorzano", role = c("aut")))
-LazyData: true
-ByteCompile: true
-RoxygenNote: 7.1.1
 Suggests:
-    rgdal,
     knitr,
     rmarkdown,
     covr,
     testthat
+License: AGPL-3
+LazyData: true
+ByteCompile: true
+RoxygenNote: 7.2.1
 VignetteBuilder: knitr

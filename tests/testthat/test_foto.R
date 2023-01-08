@@ -8,17 +8,17 @@ test_that("test zones",{
                           mustWork = TRUE)
   
   # classify pixels using zones
-  expect_output(str(foto(x = raster::raster(x), plot = FALSE)))
-  expect_output(str(foto(x = raster::brick(x), plot = FALSE)))
+  expect_output(str(foto(x = suppressWarnings(terra::rast(x)), plot = FALSE)))
+  expect_output(str(foto(x = suppressWarnings(terra::rast(x)), plot = FALSE)))
   expect_output(str(foto(x = x, plot = FALSE)))
-  expect_output(str(foto(x = raster::raster(x), plot = TRUE)))
+  expect_output(str(foto(x = suppressWarnings(terra::rast(x)), plot = TRUE)))
   
   # no image
   expect_error(foto())
   expect_error(foto(x = "./no_image.png"))
   
   # faulty method
-  expect_error(foto(x = raster::raster(x),
+  expect_error(foto(x = suppressWarnings(terra::rast(x)),
                          plot = FALSE,
                          method = "xx"))
   
@@ -27,10 +27,13 @@ test_that("test zones",{
 test_that("test mw",{
   
   # test moving window
-  r <- raster::crop(raster::raster(system.file("extdata", "yangambi.png",
-                                               package = "foto",
-                                               mustWork = TRUE)),
-                    raster::extent(1,30,1,30))
+  r <- terra::crop(
+    suppressWarnings(
+      terra::rast(system.file("extdata", "yangambi.png",
+                              package = "foto",
+                              mustWork = TRUE))
+    ),
+    terra::ext(1,30,1,30))
   
   # test moving window
   expect_output(str(foto(r,
