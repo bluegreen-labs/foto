@@ -1,12 +1,12 @@
 I have read and agree to the the CRAN policies at
 http://cran.r-project.org/web/packages/policies.html
 
-## test environments, local, CI and r-hub
+## test environments, local, github actions and r-hub
 
-- local OSX / Ubuntu 16.04 install on R 3.5
-- Ubuntu 14.04 on Travis-CI (devel / release)
-- codecove.io code coverage at ~99%
-- r-hub default versions (windows)
+- Ubuntu 22.04 install on R 4.2
+- github actions on Ubuntu 22.04 (devel / release)
+- github actions on Windows and MacOS
+- codecove.io code coverage at ~97%
 
 ## local / Travis CI R CMD check results
 
