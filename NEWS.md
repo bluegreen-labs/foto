@@ -1,3 +1,7 @@
+# foto 1.0.4
+
+* moving from {raster} to {terra}
+
 # foto 1.0.3
 
 * adding a high pass argument

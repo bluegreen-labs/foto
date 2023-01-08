@@ -18,7 +18,7 @@ al. 2018](http://spie.org/Publications/Journal/10.1117/1.JRS.12.036006?SSO=1).
 Although the techiques as presented in these papers is applied on a
 canopy level, the principle works on images of all types.
 
-Please cite the software in publication as: Koen Hufkens (2019). foto:
+> Please cite the software in publication as: Koen Hufkens (2019). foto:
 an R implementation of the “fourier transform textural ordination”
 method. <https://doi.org/10.5281/zenodo.3337885>
 

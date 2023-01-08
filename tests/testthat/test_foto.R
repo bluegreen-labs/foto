@@ -47,3 +47,22 @@ test_that("test normalization",{
   expect_output(str(normalize(x)))
   expect_error(normalize())
 })
+
+test_that("test batch processing",{
+  
+  path <- system.file("extdata", package = "foto")
+  
+  # classify pixels using zones (discrete steps)
+  expect_output(str(
+    foto_batch(
+      path = path,
+      window_size = 51,
+      method = "zones"
+      )
+    )
+  )
+})
+
+
+
+
