@@ -1,11 +1,8 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # FOTO
 
-[![R-CMD-check](https://github.com/khufkens/foto/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/khufkens/foto/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/bluegreen-labs/foto/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bluegreen-labs/foto/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/bluegreen-labs/foto/branch/master/graph/badge.svg)](https://codecov.io/gh/bluegreen-labs/foto)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/foto)](https://cran.r-project.org/package=foto)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/foto)](https://cran.r-project.org/package=foto)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/foto)](https://cran.r-project.org/package=foto)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3337885.svg)](https://doi.org/10.5281/zenodo.3337885)
 
@@ -21,7 +18,7 @@ al. 2018](http://spie.org/Publications/Journal/10.1117/1.JRS.12.036006?SSO=1).
 Although the techiques as presented in these papers is applied on a
 canopy level, the principle works on images of all types.
 
-> Please cite the software in publication as: Koen Hufkens (2019). foto:
+Please cite the software in publication as: Koen Hufkens (2019). foto:
 an R implementation of the “fourier transform textural ordination”
 method. <https://doi.org/10.5281/zenodo.3337885>
 
@@ -43,7 +40,7 @@ commands:
 
 ``` r
 if(!require(devtools)){install.packages("devtools")}
-devtools::install_github("khufkens/foto")
+devtools::install_github("bluegreen-labs/foto")
 library("foto")
 ```
 
@@ -52,7 +49,7 @@ documentation please use:
 
 ``` r
 if(!require(devtools)){install.packages("devtools")}
-devtools::install_github("khufkens/foto", build_vignettes = TRUE)
+devtools::install_github("bluegreen-labs/foto", build_vignettes = TRUE)
 library("foto")
 ```
 
@@ -70,13 +67,13 @@ detailed parameter description (click to expand)
 </summary>
 <p>
 
-| Parameter    | Description                                  |
-|--------------|----------------------------------------------|
-| x            | a raster layer (stack or brick)              |
-| window\_size | a window size in pixels                      |
-| plot         | plot output (TRUE / FALSE)                   |
-| norm\_spec   | normalize the radial spectrum (TRUE / FALSE) |
-| method       | “zones” or “mw” (i.e. moving window)         |
+| Parameter   | Description                                  |
+|-------------|----------------------------------------------|
+| x           | a raster layer (stack or brick)              |
+| window_size | a window size in pixels                      |
+| plot        | plot output (TRUE / FALSE)                   |
+| norm_spec   | normalize the radial spectrum (TRUE / FALSE) |
+| method      | “zones” or “mw” (i.e. moving window)         |
 
 </p>
 </details>
@@ -84,7 +81,7 @@ detailed parameter description (click to expand)
 ### Zones
 
 The original implementation used discrete zones (blocks of x pixels
-wide, window\_size parameter) to classify an image. This original
+wide, window_size parameter) to classify an image. This original
 implementation is the default, and the least computationally intensive,
 as it effectively reduces to resolution of the orignal data. In short,
 data is aggregated at the size of the specified window.
@@ -111,9 +108,10 @@ output <- foto(r,
      method = "zones")
 ```
 
-![](docs/figure_1-1.png)<!-- -->
+![](figure_1-1.png)<!-- -->
 
 ``` r
+
 # print data structure
 print(names(output))
 #> [1] "zones"          "radial_spectra" "rgb"
@@ -123,7 +121,7 @@ print(names(output))
 
 To maintain the resolution of the original image a moving window
 approach can be used (method = “mw”). This approach overlays a window of
-size x (window\_size parameter) on every pixel in the image and applies
+size x (window_size parameter) on every pixel in the image and applies
 the FOTO methodology. This obviously represents a considerable
 computational burden and should be used with caution. An example is
 given below for a smaller subsection of the processed image above. The
@@ -143,11 +141,11 @@ output <- foto(r,
 #> This might take a while.
 ```
 
-![](docs/figure_2-1.png)<!-- -->
+![](figure_2-1.png)<!-- -->
 
 ## Partitioned normalization
 
-Partiotioned normalization as described in [Barbier et
+Partitioned normalization as described in [Barbier et
 al. 2010](http://doi.wiley.com/10.1111/j.1466-8238.2009.00493.x) is not
 provided but easily accomplished once all images are processed. I refer
 to this paper for the appropriate routines.
