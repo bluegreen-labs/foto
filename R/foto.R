@@ -199,11 +199,13 @@ foto <- function(x,
         legend = FALSE,
         axes = FALSE
       )
-      terra::plotRGB(img_RGB,
-        stretch = "hist",
+      terra::plotRGB(
+        img_RGB,
         add = TRUE,
-        alpha = 128,
-        bgalpha = 0
+        scale = 255,
+        stretch = "hist",
+        bgalpha = 0,
+        alpha = 0.5
       )
     }
   } else {

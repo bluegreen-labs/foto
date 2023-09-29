@@ -45,7 +45,8 @@ r <- terra::rast(sprintf("%s/extdata/yangambi.png", path.package("foto")))
 output <- foto(r,
      plot = TRUE,
      window_size = 51,
-     method = "zones")
+     method = "zones"
+     )
 ```
 
 In the resulting image pixels with a similar colour have a similar texture. The analysis is run a historical image of plantations near Yangambi, DR Congo. The regular pattern of planted trees is picked up readily by the algorithm.
