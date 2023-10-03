@@ -19,8 +19,7 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><!-- ropensci --><link href="bglabs.css" rel="stylesheet">
 <meta property="og:title" content="Fourier Transform Textural Ordination">
-<meta property="og:description" content="The Fourier Transform Textural Ordination method 
-  uses a principal component analysis on radially averaged
+<meta property="og:description" content="A tool to use a principal component analysis on radially averaged
   two dimensional Fourier spectra to characterize image texture. The method
   within the context of ecology was first described by Couteron et al. (2005)
   &lt;doi:10.1111/j.1365-2664.2005.01097.x&gt; and expanded upon by
@@ -50,7 +49,7 @@
         <a class="external-link hidden-md hidden-lg" href="https://bluegreenlabs.org">
           <img src="https://bluegreenlabs.org/img/logo.png" id="hexlogo" alt="bluegreen labs"></a>
         <a class="navbar-brand" href="index.html">
-           <i>foto <small>v1.0.4</small></i>
+           <i>foto <small>v1.1</small></i>
         </a>
       </div>
     </div>
@@ -96,8 +95,8 @@
 <div class="section level1">
 <div class="page-header"><h1 id="foto">FOTO<a class="anchor" aria-label="anchor" href="#foto"></a>
 </h1></div>
-<p><a href="https://github.com/bluegreen-labs/foto/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/bluegreen-labs/foto/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://codecov.io/gh/bluegreen-labs/foto" class="external-link"><img src="https://codecov.io/gh/bluegreen-labs/foto/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://cran.r-project.org/package=foto" class="external-link"><img src="https://www.r-pkg.org/badges/version/foto" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=foto" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/foto"></a> <a href="https://doi.org/10.5281/zenodo.3337885" class="external-link"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3337885.svg" alt="DOI"></a></p>
-<p>The FOTO (Fourier Transform Textural Ordination) method uses a principal component analysis (PCA) on radially averaged 2D Fourier spectra to characterize (grayscale) image texture. The FOTO method was described by <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2664.2005.01097.x/abstract;jsessionid=359DD0662C272A59AF94FAEF3F213156.f02t04" class="external-link">Couteron et al. 2005</a> to quantify canopy stucture in relation to biomass and biodiversity. More recently, the code base of this package was used in a similar study by <a href="http://spie.org/Publications/Journal/10.1117/1.JRS.12.036006?SSO=1" class="external-link">Solorzano et al. 2018</a>. Although the techiques as presented in these papers is applied on a canopy level, the principle works on images of all types.</p>
+<p><a href="https://github.com/bluegreen-labs/foto/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/bluegreen-labs/foto/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://app.codecov.io/gh/bluegreen-labs/foto" class="external-link"><img src="https://codecov.io/gh/bluegreen-labs/foto/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://cran.r-project.org/package=foto" class="external-link"><img src="https://www.r-pkg.org/badges/version/foto" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=foto" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/foto"></a> <a href="https://doi.org/10.5281/zenodo.3337885" class="external-link"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3337885.svg" alt="DOI"></a></p>
+<p>The FOTO (Fourier Transform Textural Ordination) method uses a principal component analysis (PCA) on radially averaged 2D Fourier spectra to characterize (grayscale) image texture. The FOTO method was described by <a href="https://doi.org/10.1111/j.1365-2664.2005.01097.x" class="external-link">Couteron et al. 2005</a> to quantify canopy stucture in relation to biomass and biodiversity. More recently, the code base of this package was used in a similar study by <a href="https://doi.org/10.1117/1.JRS.12.036006" class="external-link">Solorzano et al. 2018</a>. Although the techniques as presented in these papers is applied on a canopy level, the principle works on images of all types.</p>
 <blockquote>
 <p>Please cite the software in publication as: Koen Hufkens (2019). foto: an R implementation of the “fourier transform textural ordination” method. <a href="https://doi.org/10.5281/zenodo.3337885" class="external-link uri">https://doi.org/10.5281/zenodo.3337885</a></p>
 </blockquote>
@@ -209,7 +208,7 @@ detailed parameter description (click to expand)
 <div class="section level2">
 <h2 id="partitioned-normalization">Partitioned normalization<a class="anchor" aria-label="anchor" href="#partitioned-normalization"></a>
 </h2>
-<p>Partitioned normalization as described in <a href="https://doi.org/10.1111/j.1466-8238.2009.00493.x" class="external-link">Barbier et al. 2010</a> is not provided but easily accomplished once all images are processed. I refer to this paper for the appropriate routines.</p>
+<p>Partitioned normalization as described in <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1466-8238.2009.00493.x" class="external-link">Barbier et al. 2010</a> is not provided but easily accomplished once all images are processed. I refer to this paper for the appropriate routines.</p>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
