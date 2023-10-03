@@ -1,5 +1,5 @@
 Package: foto
-Version: 1.0.4
+Version: 1.1
 Title: Fourier Transform Textural Ordination
 Authors@R: c(person(
                family = "Hufkens",
@@ -10,8 +10,7 @@ Authors@R: c(person(
               person("Jonathan V.", "Solorzano", role = c("ctb")),
               person(given = "BlueGreen Labs",
                 role = c("cph", "fnd")))
-Description: The Fourier Transform Textural Ordination method 
-  uses a principal component analysis on radially averaged
+Description: A tool to use a principal component analysis on radially averaged
   two dimensional Fourier spectra to characterize image texture. The method
   within the context of ecology was first described by Couteron et al. (2005)
   <doi:10.1111/j.1365-2664.2005.01097.x> and expanded upon by

@@ -1,4 +1,4 @@
-# foto 1.0.4
+# foto 1.1
 
 * moving from {raster} to {terra}
 

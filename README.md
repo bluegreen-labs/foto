@@ -1,7 +1,7 @@
 # FOTO
 
 [![R-CMD-check](https://github.com/bluegreen-labs/foto/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bluegreen-labs/foto/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/bluegreen-labs/foto/branch/master/graph/badge.svg)](https://codecov.io/gh/bluegreen-labs/foto)
+[![codecov](https://codecov.io/gh/bluegreen-labs/foto/branch/master/graph/badge.svg)]( https://app.codecov.io/gh/bluegreen-labs/foto)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/foto)](https://cran.r-project.org/package=foto)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/foto)](https://cran.r-project.org/package=foto)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3337885.svg)](https://doi.org/10.5281/zenodo.3337885)
@@ -10,12 +10,12 @@ The FOTO (Fourier Transform Textural Ordination) method uses a principal
 component analysis (PCA) on radially averaged 2D Fourier spectra to
 characterize (grayscale) image texture. The FOTO method was described by
 [Couteron et
-al. 2005](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2664.2005.01097.x/abstract;jsessionid=359DD0662C272A59AF94FAEF3F213156.f02t04)
+al. 2005](https://doi.org/10.1111/j.1365-2664.2005.01097.x)
 to quantify canopy stucture in relation to biomass and biodiversity.
 More recently, the code base of this package was used in a similar study
 by [Solorzano et
-al. 2018](http://spie.org/Publications/Journal/10.1117/1.JRS.12.036006?SSO=1).
-Although the techiques as presented in these papers is applied on a
+al. 2018](https://doi.org/10.1117/1.JRS.12.036006).
+Although the techniques as presented in these papers is applied on a
 canopy level, the principle works on images of all types.
 
 > Please cite the software in publication as: Koen Hufkens (2019). foto:
@@ -146,7 +146,7 @@ output <- foto(r,
 ## Partitioned normalization
 
 Partitioned normalization as described in [Barbier et
-al. 2010](https://doi.org/10.1111/j.1466-8238.2009.00493.x) is not
+al. 2010](https://onlinelibrary.wiley.com/doi/10.1111/j.1466-8238.2009.00493.x) is not
 provided but easily accomplished once all images are processed. I refer
 to this paper for the appropriate routines.
 
