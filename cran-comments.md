@@ -2,11 +2,10 @@ Dear CRAN team,
 
 This is an update of the foto package, to remove dependencies on the raster package.
 
-The package now uses terra in the calculation of fourier transform textural ordination values.
+The package now uses terra in the calculation of fourier transform textural ordination values. Code coverage unit tests remains the same at 97%. No additional functionality is included.
 
-Code coverage unit tests remains the same at 97%. No additional functionality is included.
-
-Kind regards, Koen Hufkens
+Kind regards, 
+Koen Hufkens
 
 ## test environments, local, github actions and r-hub
 
