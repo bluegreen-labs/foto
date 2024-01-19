@@ -7,6 +7,7 @@
 foto(
   x,
   window_size = 61,
+  harmonics = 29,
   method = "zones",
   norm_spec = FALSE,
   high_pass = TRUE,
@@ -19,6 +20,8 @@ foto(
 (RGB or otherwise), multi-layer data are averaged to a single layer}
 
 \item{window_size}{a moving window size in pixels (default = 61 pixels)}
+
+\item{harmonics}{number of harmonics to consider (29 by default)}
 
 \item{method}{zones (for discrete zones) or mw for a moving window
 approach}

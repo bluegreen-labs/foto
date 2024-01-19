@@ -7,6 +7,7 @@
 #' @param x an image file, or single or multi-layer SpatRaster
 #' (RGB or otherwise), multi-layer data are averaged to a single layer
 #' @param window_size a moving window size in pixels (default = 61 pixels)
+#' @param harmonics number of harmonics to consider (29 by default)
 #' @param method zones (for discrete zones) or mw for a moving window
 #' approach
 #' @param pca execute PCA, \code{TRUE} or \code{FALSE}. If \code{FALSE} only
@@ -41,13 +42,16 @@
 #' print(names(output))
 #' }
 #'
-foto <- function(x,
-                 window_size = 61,
-                 method = "zones",
-                 norm_spec = FALSE,
-                 high_pass = TRUE,
-                 pca = TRUE,
-                 plot = FALSE) {
+foto <- function(
+    x,
+    window_size = 61,
+    harmonics = 29,
+    method = "zones",
+    norm_spec = FALSE,
+    high_pass = TRUE,
+    pca = TRUE,
+    plot = FALSE
+    ) {
   
   # get the current enviroment
   env <- environment()
@@ -99,11 +103,7 @@ foto <- function(x,
 
   # use assign
   # define output matrix and global increment, i
-  if (window_size / 2 < 29) {
-    output <- matrix(0, cells + 1, window_size / 2)
-  } else {
-    output <- matrix(0, cells, 29)
-  }
+  output <- matrix(0, cells, harmonics)
 
   # see rspectrum function above
   i <- 0
@@ -117,6 +117,7 @@ foto <- function(x,
           rspectrum(
             x = x,
             w = window_size,
+            hm = harmonics,
             n = norm_spec,
             h = high_pass,
             env = env
@@ -138,6 +139,7 @@ foto <- function(x,
           rspectrum(
             x = x,
             w = window_size,
+            hm = harmonics,
             n = norm_spec,
             env = env
           )

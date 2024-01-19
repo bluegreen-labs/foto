@@ -4,12 +4,14 @@
 \alias{rspectrum}
 \title{Calculates a radial spectrum}
 \usage{
-rspectrum(x, w, n = TRUE, h = TRUE, env, ...)
+rspectrum(x, w, hm, n = TRUE, h = TRUE, env, ...)
 }
 \arguments{
 \item{x}{a square matrix}
 
 \item{w}{a moving window size}
+
+\item{hm}{harmonics to consider as features}
 
 \item{n}{normalize, bolean \code{TRUE} or \code{FALSE}}
 

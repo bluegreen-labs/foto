@@ -4,6 +4,7 @@
 #'
 #' @param x a square matrix
 #' @param w a moving window size
+#' @param hm harmonics to consider as features
 #' @param n normalize, bolean \code{TRUE} or \code{FALSE}
 #' @param h high pass filter on the two first spectra values
 #'  set to 0, limits the influence of low frequency components
@@ -13,12 +14,16 @@
 #' @return Returns a radial spectrum values for the image used
 #' in order to classify texture using a PCA (or other) analysis.
 
-rspectrum <- function(x,
-                      w,
-                      n = TRUE,
-                      h = TRUE,
-                      env,
-                      ...) {
+rspectrum <- function(
+    x,
+    w,
+    hm,
+    n = TRUE,
+    h = TRUE,
+    env,
+    ...
+    ) {
+  
   # increment
   i <- get("i", envir = env)
 
@@ -77,10 +82,10 @@ rspectrum <- function(x,
     # in accordance to ploton et al. 2012
     output <- get("output", envir = env)
 
-    if (w / 2 < 29) {
-      output[i, ] <- rspec[1:floor(w / 2)]
+    if (length(rspec) < hm) {
+      output[i, 1:length(rspec)] <- rspec
     } else {
-      output[i, ] <- rspec[1:29]
+      output[i,] <- rspec[1:hm]
     }
 
     # assign values to matrix
