@@ -1,3 +1,8 @@
+# foto 1.2
+
+* fix plotting routine
+* adding new vignette - theoretical basis
+
 # foto 1.1
 
 * moving from {raster} to {terra}
