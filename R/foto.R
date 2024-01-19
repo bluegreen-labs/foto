@@ -194,18 +194,19 @@ foto <- function(x,
 
     # plot the classification using an RGB representation of the first 3 PC
     if (plot) {
-      terra::plot(img,
-        col = grDevices::gray(0:100 / 100),
-        legend = FALSE,
-        axes = FALSE
-      )
       terra::plotRGB(
         img_RGB,
-        add = TRUE,
         scale = 255,
-        stretch = "hist",
-        bgalpha = 0,
-        alpha = 0.5
+        smooth = FALSE,
+        stretch = "hist"
+      )
+      terra::plot(
+        img,
+        add = TRUE,
+        col = grDevices::gray(0:100 / 100),
+        legend = FALSE,
+        axes = FALSE,
+        alpha = 0.3
       )
     }
   } else {
