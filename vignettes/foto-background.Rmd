@@ -1,0 +1,182 @@
+---
+title: "foto"
+author: "Koen Hufkens"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{foto background}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+# load the library
+library(foto)
+library(terra)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+The FOTO (Fourier Transform Textural Ordination) method uses a principal component analysis (PCA) on radially averaged 2D fourier spectra to characterize (greyscale) image texture (of canopies). Here, I'll explain the underlying algorithm, with a worked example. This should give you a better insight in how the algorithm works and how some of the parameters influence your analysis.
+
+```{r echo = FALSE, warning=FALSE, fig.height=7, fig.width=6}
+# load demo data
+r <- terra::rast(sprintf("%s/extdata/yangambi.png", path.package("foto")))
+terra::plot(
+        r,
+        col = grDevices::gray(0:100 / 100),
+        legend = FALSE,
+        axes = FALSE
+      )
+rect(50, 250, 150, 350, border = "yellow", lwd = 2)
+rect(50, 550, 150, 650, border = "yellow", lwd = 2)
+rect(550, 950, 650, 1050, border = "yellow", lwd = 2)
+```
+
+
+Note that the three boxes have very different textures.
+
+```{r echo = FALSE, fig.height=4, fig.width=12}
+im_1 <- im_2 <- im_3 <- r
+
+im_1 <- crop(im_1, c( 50, 151, 250, 351))
+im_2 <- crop(im_2, c( 50, 151, 550, 651))
+im_3 <- crop(im_3, c( 550, 651, 950, 1051))
+
+
+par(mfrow = c(1,3))
+
+
+plot(
+  im_1,
+  col = grDevices::gray(0:100 / 100),
+  legend = FALSE,
+  axes = FALSE
+)
+
+plot(
+  im_2,
+  col = grDevices::gray(0:100 / 100),
+  legend = FALSE,
+  axes = FALSE
+)
+
+plot(
+  im_3,
+  col = grDevices::gray(0:100 / 100),
+  legend = FALSE,
+  axes = FALSE
+)
+
+im_1 <- matrix(im_1, nrow = nrow(im_1), ncol = ncol(im_1), byrow = TRUE)
+im_2 <- matrix(im_2, nrow = nrow(im_2), ncol = ncol(im_2), byrow = TRUE)
+im_3 <- matrix(im_3, nrow = nrow(im_3), ncol = ncol(im_3), byrow = TRUE)
+```
+
+The next step in the algorithm is to transform the data using a Fourier decomposition.
+
+```{r}
+# fft transform
+fftim_1 <- Mod(stats::fft(im_1))^2
+fftim_2 <- Mod(stats::fft(im_2))^2
+fftim_3 <- Mod(stats::fft(im_3))^2
+```
+
+The data now need to be radially averaged, so we calculate the distance relative to the center of the image.
+
+```{r}
+# calculate distance from the center of the image
+offset <- ceiling(dim(im_1)[1] / 2)
+
+# define distance matrix
+# r is rounded to an integer by zonal
+distance_mask <- sqrt((col(im_1) - offset)^2 + (row(im_1) - offset)^2)
+```
+
+We first back convert all data to `terra` objects (rasters), to make the raster math easier.
+
+```{r}
+# suppress warning on missing extent (which
+# is normal)
+fftim_1 <- terra::rast(fftim_1)
+fftim_2 <- terra::rast(fftim_2)
+fftim_3 <- terra::rast(fftim_3)
+distance_mask <- terra::rast(distance_mask)
+```
+
+Below you see the concentric mask and the 2D FFT frequency plot. Note, unlike most conventional plots the data is not centered on 0.
+
+```{r  fig.height = 6, fig.width=12}
+par(mfrow=c(1,2))
+plot(log(fftim_1))
+plot(distance_mask)
+
+```
+
+For all FFT spectra the data will be radially averaged, removing any directional components from the data. The `terra` zonal() function is used to do this efficiently.
+
+```{r}
+rspec_1 <- rev(
+  terra::zonal(
+    fftim_1,
+    distance_mask,
+    fun = "mean",
+    na.rm = TRUE
+  )[, 2]
+)
+```
+
+```{r echo = FALSE}
+rspec_2 <- rev(
+  terra::zonal(
+    fftim_2,
+    distance_mask,
+    fun = "mean",
+    na.rm = TRUE
+  )[, 2]
+)
+
+rspec_3 <- rev(
+  terra::zonal(
+    fftim_3,
+    distance_mask,
+    fun = "mean",
+    na.rm = TRUE
+  )[, 2]
+)
+
+df <- data.frame(
+  idx = 1:length(rspec_1),
+  box_1 = rspec_1,
+  box_2 = rspec_2,
+  box_3 = rspec_3
+) |>
+  pivot_longer(
+    cols = starts_with("box"),
+    values_to = "spec",
+    names_to = "box"
+  )
+```
+
+Plotting the averaged spectra shows subtle differences between the different textures.
+
+```{r fig.height=4, fig.width=12, echo = FALSE}
+p  <- ggplot(df) +
+  geom_line(
+    aes(
+      idx,
+      log(spec),
+      group = box,
+      colour = box
+    )
+  )
+
+print(p)
+
+```
