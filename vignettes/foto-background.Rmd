@@ -19,7 +19,6 @@ knitr::opts_chunk$set(
 library(foto)
 library(terra)
 library(ggplot2)
-library(dplyr)
 library(tidyr)
 ```
 
