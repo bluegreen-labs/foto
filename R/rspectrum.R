@@ -41,7 +41,7 @@ rspectrum <- function(x,
 
     # define distance matrix
     # r is rounded to an integer by zonal
-    r <- sqrt((col(im) - offset)^2 + (row(im) - offset)^2)
+    r <- round(sqrt((col(im) - offset)^2 + (row(im) - offset)^2))
 
     # suppress warning on missing extent (which
     # is normal)

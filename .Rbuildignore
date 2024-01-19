@@ -4,6 +4,7 @@
 ^pkgdown$
 ^docs$
 ^data-raw$
+^analysis$
 ^manuscript$
 
 # R-markdown files in the root folder
