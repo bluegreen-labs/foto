@@ -179,3 +179,5 @@ p  <- ggplot(df) +
 print(p)
 
 ```
+
+Note that decreasing the number of pixels in the analysis will reduce the spectra size. With fewer features used in the PCA to discriminate different textures results will be less nuanced. Also note that the `foto` package discards the low order features (applies a low pass filter) to remove the underlying image mean. This can be turned of if desired.
