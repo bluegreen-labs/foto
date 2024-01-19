@@ -91,7 +91,6 @@ output_2 <- foto(r_2,
 ```
 
 
-
 ```{r figure_3, fig.width=7, fig.height=4}
 par(mfrow = c(1,2))
 plot(r_2, col = grey.colors(100), axes = FALSE, legend = FALSE, box = FALSE)
