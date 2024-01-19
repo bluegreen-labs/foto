@@ -140,15 +140,11 @@ distance relative to the center of the image.</p>
 <span><span class="va">distance_mask</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">distance_mask</span><span class="op">)</span></span></code></pre></div>
 <p>Below you see the concentric mask and the 2D FFT frequency plot.
 Note, unlike most conventional plots the data is not centered on 0.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">fftim_1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">distance_mask</span><span class="op">)</span></span></code></pre></div>
 <p><img src="foto-background_files/figure-html/unnamed-chunk-6-1.png" width="1152"></p>
 <p>For all FFT spectra the data will be radially averaged, removing any
 directional components from the data. The <code>terra</code> zonal()
 function is used to do this efficiently.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rspec_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span></span>
 <span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/zonal.html" class="external-link">zonal</a></span><span class="op">(</span></span>
 <span>    <span class="va">fftim_1</span>,</span>
@@ -158,8 +154,17 @@ function is used to do this efficiently.</p>
 <span>  <span class="op">)</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p>Plotting the averaged spectra shows subtle differences between the
-different textures.</p>
+different textures. The <code>foto</code> package calculates these
+spectra for fixed zones or moving windows and uses these as input for a
+subsequent PCA analysis - with the first three principal components (PC)
+reported.</p>
 <p><img src="foto-background_files/figure-html/unnamed-chunk-9-1.png" width="1152"></p>
+<p>Note that decreasing the number of pixels in the analysis will reduce
+the spectra size. With fewer features used in the PCA to discriminate
+different textures results will be less nuanced. Also note that the
+<code>foto</code> package discards the low order features (applies a low
+pass filter) to remove the underlying image mean. This can be turned of
+if desired.</p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
