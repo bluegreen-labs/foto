@@ -111,7 +111,7 @@ distance_mask <- terra::rast(distance_mask)
 
 Below you see the concentric mask and the 2D FFT frequency plot. Note, unlike most conventional plots the data is not centered on 0.
 
-```{r  fig.height = 6, fig.width=12}
+```{r  fig.height = 6, fig.width=12, echo = FALSE}
 par(mfrow=c(1,2))
 plot(log(fftim_1))
 plot(distance_mask)
@@ -163,7 +163,7 @@ df <- data.frame(
   )
 ```
 
-Plotting the averaged spectra shows subtle differences between the different textures.
+Plotting the averaged spectra shows subtle differences between the different textures. The `foto` package calculates these spectra for fixed zones or moving windows and uses these as input for a subsequent PCA analysis - with the first three principal components (PC) reported.
 
 ```{r fig.height=4, fig.width=12, echo = FALSE}
 p  <- ggplot(df) +
