@@ -98,12 +98,12 @@ plot(r_2, col = grey.colors(100), axes = FALSE, legend = FALSE, box = FALSE)
 plot(r, col = grey.colors(100), axes = FALSE, legend = FALSE, box = FALSE)
 
 par(mfrow = c(1,2))
-plotRGB(output_batch[[1]], stretch = "hist")
-plotRGB(output_batch[[2]], stretch = "hist")
+plotRGB(output_batch[[1]], stretch = "hist", smooth = FALSE)
+plotRGB(output_batch[[2]], stretch = "hist", smooth = FALSE)
 
 par(mfrow = c(1,2))
-plotRGB(output_2$rgb, stretch = "hist")
-plotRGB(output$rgb, stretch = "hist")
+plotRGB(output_2$rgb, stretch = "hist", smooth = FALSE)
+plotRGB(output$rgb, stretch = "hist", smooth = FALSE)
 ```
 
 
