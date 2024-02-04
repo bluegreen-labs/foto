@@ -95,7 +95,7 @@
                         <h4 data-toc-skip class="author">Koen
 Hufkens</h4>
             
-            <h4 data-toc-skip class="date">2024-01-31</h4>
+            <h4 data-toc-skip class="date">2024-02-04</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/bluegreen-labs/foto/blob/HEAD/vignettes/foto-background.Rmd" class="external-link"><code>vignettes/foto-background.Rmd</code></a></small>
       <div class="hidden name"><code>foto-background.Rmd</code></div>
@@ -134,10 +134,10 @@ distance relative to the center of the image.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># suppress warning on missing extent (which</span></span>
 <span><span class="co"># is normal)</span></span>
-<span><span class="va">fftim_1</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">fftim_1</span><span class="op">)</span></span>
-<span><span class="va">fftim_2</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">fftim_2</span><span class="op">)</span></span>
-<span><span class="va">fftim_3</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">fftim_3</span><span class="op">)</span></span>
-<span><span class="va">distance_mask</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">distance_mask</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">fftim_1</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">fftim_1</span><span class="op">)</span></span>
+<span><span class="va">fftim_2</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">fftim_2</span><span class="op">)</span></span>
+<span><span class="va">fftim_3</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">fftim_3</span><span class="op">)</span></span>
+<span><span class="va">distance_mask</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">distance_mask</span><span class="op">)</span></span></code></pre></div>
 <p>Below you see the concentric mask and the 2D FFT frequency plot.
 Note, unlike most conventional plots the data is not centered on 0.</p>
 <p><img src="foto-background_files/figure-html/unnamed-chunk-6-1.png" width="1152"></p>
@@ -146,7 +146,7 @@ directional components from the data. The <code>terra</code> zonal()
 function is used to do this efficiently.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rspec_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span></span>
-<span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/zonal.html" class="external-link">zonal</a></span><span class="op">(</span></span>
+<span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/zonal.html" class="external-link">zonal</a></span><span class="op">(</span></span>
 <span>    <span class="va">fftim_1</span>,</span>
 <span>    <span class="va">distance_mask</span>,</span>
 <span>    fun <span class="op">=</span> <span class="st">"mean"</span>,</span>
