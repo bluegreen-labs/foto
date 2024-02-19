@@ -21,7 +21,6 @@ canopy level, the principle works on images of all types.
 
 ## How to cite this package
 
-> [!important]
 > Please cite the software in publication as: Koen Hufkens (2019). foto:
 an R implementation of the “fourier transform textural ordination”
 method. <https://doi.org/10.5281/zenodo.3337885>
