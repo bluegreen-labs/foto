@@ -19,11 +19,9 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><!-- ropensci --><link href="../bglabs.css" rel="stylesheet">
 <meta property="og:title" content="foto">
-<meta property="og:description" content="foto">
-<meta name="twitter:card" content="summary">
 </head>
 <body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -57,7 +55,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
-     
+
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
@@ -75,7 +73,7 @@
         <li>
   <a href="https://github.com/bluegreen-labs/foto/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul>
@@ -86,7 +84,7 @@
 </div>
 <!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
@@ -95,9 +93,9 @@
                         <h4 data-toc-skip class="author">Koen
 Hufkens</h4>
             
-            <h4 data-toc-skip class="date">2024-02-19</h4>
+            <h4 data-toc-skip class="date">2026-01-11</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/bluegreen-labs/foto/blob/HEAD/vignettes/foto-vignette.Rmd" class="external-link"><code>vignettes/foto-vignette.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/bluegreen-labs/foto/blob/master/vignettes/foto-vignette.Rmd" class="external-link"><code>vignettes/foto-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>foto-vignette.Rmd</code></div>
 
     </div>
@@ -143,7 +141,7 @@ for every pixel. An example analysis is run below.</p>
 <span>     window_size <span class="op">=</span> <span class="fl">51</span>,</span>
 <span>     method <span class="op">=</span> <span class="st">"zones"</span></span>
 <span>     <span class="op">)</span></span></code></pre></div>
-<p><img src="foto-vignette_files/figure-html/figure_1-1.png" width="672"></p>
+<p><img src="foto-vignette_files/figure-html/figure_1-1.png" class="r-plt" alt="" width="672"></p>
 <p>In the resulting image pixels with a similar colour have a similar
 texture. The analysis is run a historical image of plantations near
 Yangambi, DR Congo. The regular pattern of planted trees is picked up
@@ -166,7 +164,7 @@ consistent with that of the zoned approach.</p>
 <span>     method <span class="op">=</span> <span class="st">"mw"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; A moving window approach is computationally intensive.</span></span>
 <span><span class="co">#&gt; This might take a while.</span></span></code></pre></div>
-<p><img src="foto-vignette_files/figure-html/figure_2-1.png" width="672"></p>
+<p><img src="foto-vignette_files/figure-html/figure_2-1.png" class="r-plt" alt="" width="672"></p>
 </div>
 </div>
 <div class="section level3">
@@ -203,19 +201,19 @@ one-to-one analysis.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_2</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.colors.html" class="external-link">grey.colors</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, axes <span class="op">=</span> <span class="cn">FALSE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, box <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.colors.html" class="external-link">grey.colors</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, axes <span class="op">=</span> <span class="cn">FALSE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, box <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="foto-vignette_files/figure-html/figure_3-1.png" width="672"></p>
+<p><img src="foto-vignette_files/figure-html/figure_3-1.png" class="r-plt" alt="" width="672"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">plotRGB</a></span><span class="op">(</span><span class="va">output_batch</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, stretch <span class="op">=</span> <span class="st">"hist"</span>, smooth <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">plotRGB</a></span><span class="op">(</span><span class="va">output_batch</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, stretch <span class="op">=</span> <span class="st">"hist"</span>, smooth <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="foto-vignette_files/figure-html/figure_3-2.png" width="672"></p>
+<p><img src="foto-vignette_files/figure-html/figure_3-2.png" class="r-plt" alt="" width="672"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">plotRGB</a></span><span class="op">(</span><span class="va">output_2</span><span class="op">$</span><span class="va">rgb</span>, stretch <span class="op">=</span> <span class="st">"hist"</span>, smooth <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">plotRGB</a></span><span class="op">(</span><span class="va">output</span><span class="op">$</span><span class="va">rgb</span>, stretch <span class="op">=</span> <span class="st">"hist"</span>, smooth <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="foto-vignette_files/figure-html/figure_3-3.png" width="672"></p>
+<p><img src="foto-vignette_files/figure-html/figure_3-3.png" class="r-plt" alt="" width="672"></p>
 </div>
 <div class="section level3">
 <h3 id="partitioned-normalization">Partitioned normalization<a class="anchor" aria-label="anchor" href="#partitioned-normalization"></a>
@@ -231,9 +229,7 @@ outputs for the necessary data sources.</p>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
+      </div>
 
 </div>
 
@@ -249,8 +245,8 @@ outputs for the necessary data sources.</p>
                           <div class="icon fab fa-github"></div></a>
                         <a href="https://bluegreenlabs.org/labs/" target="_blank" class="external-link">
                           <div class="icon fa fa-flask"></div></a>
-                        <a href="http://twitter.com/bluegreen_labs" target="_blank" class="external-link">
-                          <div class="icon fab fa-twitter"></div></a>
+                        <a href="https://www.linkedin.com/company/bluegreen-labs/" target="_blank" class="external-link">
+                          <div class="icon fa fa-linkedin"></div></a>
                     </div>
                 </div>
                 <div class="row top-4">
@@ -281,10 +277,10 @@ outputs for the necessary data sources.</p>
       </footer>
 </div>
 
-  
 
 
-  
+
+
 
   </body>
 </html>

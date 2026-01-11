@@ -3,7 +3,7 @@
 analysis across images. This global normalization makes it possible
 to compare the resulting PCA scores across images and infer trends
 over different remote sensing tiles or across time."><meta name="twitter:card" content="summary"></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -36,7 +36,7 @@ over different remote sensing tiles or across time."><meta name="twitter:card" c
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
-     
+
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
@@ -52,20 +52,20 @@ over different remote sensing tiles or across time."><meta name="twitter:card" c
         <li>
   <a href="https://github.com/bluegreen-labs/foto/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Calculates FOTO classification of texture for an image batch</h1>
-    <small class="dont-index">Source: <a href="https://github.com/bluegreen-labs/foto/blob/HEAD/R/foto_batch.R" class="external-link"><code>R/foto_batch.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/bluegreen-labs/foto/blob/master/R/foto_batch.R" class="external-link"><code>R/foto_batch.R</code></a></small>
     <div class="hidden name"><code>foto_batch.Rd</code></div>
     </div>
 
@@ -82,28 +82,28 @@ over different remote sensing tiles or across time.</p>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>path</dt>
+
+
+<dl><dt id="arg-path">path<a class="anchor" aria-label="anchor" href="#arg-path"></a></dt>
 <dd><p>directory containing (only) image files to process</p></dd>
 
 
-<dt>window_size</dt>
+<dt id="arg-window-size">window_size<a class="anchor" aria-label="anchor" href="#arg-window-size"></a></dt>
 <dd><p>a moving window size in pixels (default = 61 pixels)</p></dd>
 
 
-<dt>method</dt>
+<dt id="arg-method">method<a class="anchor" aria-label="anchor" href="#arg-method"></a></dt>
 <dd><p>zones (for discrete zones) or mw for a moving window
 approach</p></dd>
 
 
-<dt>cores</dt>
+<dt id="arg-cores">cores<a class="anchor" aria-label="anchor" href="#arg-cores"></a></dt>
 <dd><p>number of cores to use in parallel calculations</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>returns a radial spectrum for a moving window across a
+    <p>returns a radial spectrum for a moving window across a
 raster layer</p>
     </div>
     <div id="see-also">
@@ -113,7 +113,7 @@ raster layer</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># load demo data path</span></span></span>
 <span class="r-in"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, package <span class="op">=</span> <span class="st">"foto"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -123,7 +123,7 @@ raster layer</p>
 <span class="r-in"><span>  window_size <span class="op">=</span> <span class="fl">25</span>,</span></span>
 <span class="r-in"><span>  method <span class="op">=</span> <span class="st">"zones"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -144,8 +144,8 @@ raster layer</p>
                           <div class="icon fab fa-github"></div></a>
                         <a href="https://bluegreenlabs.org/labs/" target="_blank" class="external-link">
                           <div class="icon fa fa-flask"></div></a>
-                        <a href="http://twitter.com/bluegreen_labs" target="_blank" class="external-link">
-                          <div class="icon fab fa-twitter"></div></a>
+                        <a href="https://www.linkedin.com/company/bluegreen-labs/" target="_blank" class="external-link">
+                          <div class="icon fa fa-linkedin"></div></a>
                     </div>
                 </div>
                 <div class="row top-4">
@@ -171,10 +171,10 @@ raster layer</p>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 
